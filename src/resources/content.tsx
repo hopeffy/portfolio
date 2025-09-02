@@ -1,0 +1,250 @@
+import { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types/content.types";
+import { Line, Logo, Row, Text } from "@once-ui-system/core";
+
+const person: Person = {
+  firstName: "Eftelya",
+  lastName: "ÇELİK",
+  name: `Eftelya ÇELİK`,
+  role: "Computer Engineer",
+  avatar: "/images/avatar.jpg",
+  email: "eftelyacelik@gmail.com",
+  location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Türkçe"], // optional: Leave the array empty if you don't want to display languages
+};
+
+const newsletter: Newsletter = {
+  display: true,
+  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  description: <>My weekly newsletter about creativity and engineering</>,
+};
+
+const social: Social = [
+  // Links are automatically displayed.
+  // Import new icons in /once-ui/icons.ts
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/hopeffy",
+  },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/in/eftelya-celik/",
+  },
+  {
+    name: "Email",
+    icon: "email",
+    link: `mailto:${person.email}`,
+  },
+];
+
+const home: Home = {
+  path: "/",
+  image: "/images/og/home.jpg",
+  label: "Home",
+  title: `${person.name}'s Portfolio`,
+  description: `Portfolio website showcasing my work as a ${person.role}`,
+  headline: <>Building bridges between design and code</>,
+  featured: {
+    display: true,
+    title: (
+      <Row gap="12" vertical="center">
+        <strong className="ml-4">Once UI</strong>{" "}
+        <Line background="brand-alpha-strong" vert height="20" />
+        <Text marginRight="4" onBackground="brand-medium">
+          Featured work
+        </Text>
+      </Row>
+    ),
+    href: "/work/building-once-ui-a-customizable-design-system",
+  },
+  subline: (
+    <>
+      I'm Selene, a design engineer at{" "}
+      <Logo
+        dark
+        icon="/trademarks/wordmark-dark.svg"
+        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
+      />
+      , where I craft intuitive
+      <br /> user experiences. After hours, I build my own projects.
+    </>
+  ),
+};
+
+const about: About = {
+  path: "/about",
+  label: "About",
+  title: `About – ${person.name}`,
+  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  tableOfContent: {
+    display: true,
+    subItems: false,
+  },
+  avatar: {
+    display: true,
+  },
+  calendar: {
+    display: true,
+    link: "https://cal.com",
+  },
+  intro: {
+    display: true,
+    title: "Introduction",
+    description: (
+      <>
+        I’m Eftelya, a computer engineering student passionate about data science, design, and building tech solutions that make life simpler and smarter. My journey blends software development, data, and creativity.
+      </>
+    ),
+  },
+  work: {
+    display: true, // set to false to hide this section
+    title: "Experience",
+    experiences: [
+      {
+        company: "CSArt",
+        companyLink: "https://csart.com.tr/",
+        timeframe: "Jun 2025 - Present",
+        role: "Software Engineer Intern",
+        achievements: [
+        ],
+      },
+      {
+        company: "Akdeniz University",
+        timeframe: "Oct 2024 - Jun 2025",
+        role: "Web Administration (Günkaf25 & Kariyer Merkezi Webis) - part time",
+        achievements: [
+          <>
+            Managed and maintained <strong>WordPress</strong> websites, handling content updates, user management, and site optimization to ensure smooth operation and improved user experience.
+          </>,
+        ],
+      },
+      {
+        company: "Ergineer Software",
+        companyLink: "https://ergineer.com/",
+        timeframe: "Jul 2024 - Aug 2024",
+        role: "Software Engineering Internship",
+        achievements: [
+          <>
+            Developed mobile applications with <strong>Flutter</strong>, implementing <strong>token-based authentication</strong>, <strong>RESTful API integration</strong>, and <strong>responsive, user-friendly designs</strong>.
+          </>,
+        ],
+      },
+      {
+        company: "Sednacloud",
+        companyLink: "https://www.kod.com.tr/",
+        timeframe: "Jun 2023 - Sep 2023",
+        role: "Software Engineering Internship",
+        achievements: [
+          <>
+            Developed a Jira-inspired task manager as a full-stack project using <strong>ASP.NET</strong> and <strong>Angular</strong>. 
+            Gained experience in setting up and integrating <strong>Azure Blob Storage</strong> within an <strong>Onion Architecture</strong>, 
+            while implementing key features such as task creation, deletion, status updates, file attachments, and admin operations.
+          </>,
+          <>
+            Frontend Development Project repository: <a href="https://github.com/selinkhrmn/TaskManagerClient" target="_blank">Task Manager GitHub Repository</a>
+          </>,
+          <>
+            Backend Development Project repository: <a href="https://github.com/Oguzhankeserr/TaskManager" target="_blank">Task Manager Server GitHub Repository</a>
+          </>,
+        ],
+      },
+      {
+        company: "Sednacloud",
+        companyLink: "https://www.kod.com.tr/",
+        timeframe: "Jun 2022 - Sep 2022",
+        role: "Software Engineering Internship",
+        achievements: [
+          <>
+            Developed a basic hotel management web application using <strong>Angular</strong>, implementing login and registration functionalities. 
+            Ensured <strong>responsive design</strong> for optimal user experience across devices and assisted in integrating <strong>token-based authentication</strong>.
+          </>,
+          <>
+            Project repository: <a href="https://github.com/alikarakoc/HollieClient" target="_blank">HollieClient GitHub Repository</a>
+          </>,
+        ],
+        images: [],
+      },
+    ],
+  },
+  studies: {
+    display: true, // set to false to hide this section
+    title: "Education",
+    institutions: [
+      {
+        name: "Akdeniz University",
+        description: <>Bachelor's Degree, Computer Engineering (Ongoing)</>,
+      },
+    ],
+  },
+  technical: {
+    display: true,
+    title: "Technical Skills",
+    skills: [
+      {
+        title: "Backend Development",
+        description: <>Building server-side applications and managing databases.</>,
+        tags: [
+          { name: "ASP.NET Core 7.0", icon: "dotnet" },
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "MySQL", icon: "mysql" },
+          { name: "DBeaver", icon: "dbeaver" },
+          { name: "C#", icon: "csharp" },
+        ],
+        images: [], // istersen burada backend projelerinin ekran görüntülerini ekleyebilirsin
+      },
+      {
+        title: "Frontend Development",
+        description: <>Creating interactive and responsive user interfaces.</>,
+        tags: [
+          { name: "Angular", icon: "angular" },
+          { name: "HTML", icon: "html" },
+          { name: "CSS", icon: "css" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "JavaScript", icon: "javascript" },
+        ],
+        images: [],
+      },
+      {
+        title: "Data & Scripting",
+        description: <>Data manipulation, scripting, and backend APIs.</>,
+        tags: [
+          { name: "Python", icon: "python" },
+          { name: "Flask", icon: "flask" },
+        ],
+        images: [],
+      },
+      {
+        title: "Tools & Collaboration",
+        description: <>Version control and containerization for smooth collaboration.</>,
+        tags: [
+          { name: "Git", icon: "git" },
+          { name: "GitHub", icon: "github" },
+          { name: "Docker", icon: "docker" },
+          { name: "Jira", icon: "jira" },
+        ],
+        images: [],
+      },
+    ],
+  },  
+};
+
+const blog: Blog = {
+  path: "/blog",
+  label: "Blog",
+  title: "Writing about design and tech...",
+  description: `Read what ${person.name} has been up to recently`,
+  // Create new blog posts by adding a new .mdx file to app/blog/posts
+  // All posts will be listed on the /blog route
+};
+
+const work: Work = {
+  path: "/work",
+  label: "Work",
+  title: `Projects – ${person.name}`,
+  description: `Design and dev projects by ${person.name}`,
+  // Create new project pages by adding a new .mdx file to app/blog/posts
+  // All projects will be listed on the /home and /work routes
+};
+
+export { person, social, newsletter, home, about, blog, work };
