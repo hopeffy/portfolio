@@ -227,6 +227,91 @@ const about: About = {
       },
     ],
   },  
+  volunteering: {
+    display: true,
+    title: "Volunteering & Leadership",
+    experiences: [
+      {
+        organization: "Akdeniz Career Summit",
+        timeframe: "April 28, 2025",
+        role: "Organizing Committee Member",
+        description: (
+          <>
+            <p>
+              Shipped the official website and contributed to operations, reaching nearly 500 registrations.
+            </p>
+            <a href="https://www.akdenizkariyerzirvesi.com.tr/" target="_blank" rel="noreferrer">
+              akdenizkariyerzirvesi.com.tr
+            </a>
+
+            <div style={{ marginTop: 12 }}>
+              <iframe
+                src="https://www.akdenizkariyerzirvesi.com.tr/"
+                height="400"
+                width="100%"
+                frameBorder="0"
+                title="Akdeniz Career Summit Website"
+                style={{ borderRadius: 12, border: '1px solid #e5e7eb' }}
+              />
+            </div>
+          </>
+        ),
+        links: [{ name: "Official Website", url: "https://www.akdenizkariyerzirvesi.com.tr/" }],
+      },
+      {
+        organization: "Akdeniz Data Club",
+        timeframe: "Jan 2025 - Present",
+        role: "Club President",
+        description: (
+          <>
+            <p>
+              Akdeniz University Data Science Club aims to provide students with practical knowledge in data science. 
+               <br></br> <br></br> During my presidency, I supported this mission by building a new team, organizing events, and improving my leadership and communication skills.
+            </p>
+            
+            <strong>Event Snapshot</strong>
+            <p style={{ marginTop: 6 }}>
+              I presented the first session of our monthly Case Study series on "Movie Recommendation System".
+              Participants built an end‑to‑end recommender on real data.
+            </p>
+
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "8px 0 12px" }}>
+              <span style={{ background: "#eef2ff", color: "#3730a3", padding: "4px 8px", borderRadius: 8, fontSize: 12 }}>
+                Monthly Case Study
+              </span>
+              <span style={{ background: "#ecfeff", color: "#155e75", padding: "4px 8px", borderRadius: 8, fontSize: 12 }}>
+                Presenter: Eftelya Çelik
+              </span>
+              <a
+                href="https://www.linkedin.com/feed/update/urn:li:activity:7304503804073238528"
+                target="_blank"
+                rel="noreferrer"
+                style={{ background: "#f0fdf4", color: "#166534", padding: "4px 8px", borderRadius: 8, fontSize: 12, textDecoration: "none" }}
+              >
+                LinkedIn Post
+              </a>
+            </div>
+
+            <div style={{ marginTop: 8 }}>
+              <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7304503804073238528"
+                height="570"
+                width="100%"
+                frameBorder="0"
+                allowFullScreen
+                title="LinkedIn Case Study Post"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ borderRadius: 12 }}
+              />
+            </div>
+          </>
+        ),
+        links: [
+          { name: "LinkedIn Case Study Post", url: "https://www.linkedin.com/feed/update/urn:li:activity:7304503804073238528" },
+        ],
+      },
+    ],
+  },
 };
 
 const blog: Blog = {

@@ -40,6 +40,11 @@ export default function Home() {
       items: about.work.experiences.map((experience) => experience.company),
     },
     {
+      title: about.volunteering.title,
+      display: about.volunteering.display,
+      items: about.volunteering.experiences.map((v) => v.organization),
+    },
+    {
       title: about.studies.title,
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
@@ -220,6 +225,48 @@ export default function Home() {
                               src={image.src}
                             />
                           </Row>
+                        ))}
+                      </Row>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
+          {about.volunteering.display && (
+            <>
+              <Heading as="h2" id={about.volunteering.title} variant="display-strong-s" marginBottom="m">
+                {about.volunteering.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.volunteering.experiences.map((item, index) => (
+                  <Column key={`${item.organization}-${item.role}-${index}`} fillWidth>
+                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                      <Text id={item.organization} variant="heading-strong-l">
+                        {item.organization}
+                      </Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {item.timeframe}
+                      </Text>
+                    </Row>
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                      {item.role}
+                    </Text>
+                    <Column gap="16">{item.description}</Column>
+                    {item.links && item.links.length > 0 && (
+                      <Row wrap gap="8" paddingTop="8">
+                        {item.links.map((link, i) => (
+                          <Button
+                            key={`${item.organization}-link-${i}`}
+                            href={link.url}
+                            label={link.name}
+                            size="s"
+                            weight="default"
+                            variant="secondary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />
                         ))}
                       </Row>
                     )}
