@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "ÇELİK",
   name: `Eftelya ÇELİK`,
   role: "Computer Engineer",
-  avatar: "/images/avatar.jpg",
+  avatar: "/eftelya-avatar.jpg",
   email: "eftelyacelik@gmail.com",
   location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Türkçe"], // optional: Leave the array empty if you don't want to display languages
@@ -49,14 +49,14 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Portfolio</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/gunkaf-25-website",
   },
   subline: (
     <>
@@ -104,10 +104,20 @@ const about: About = {
       {
         company: "CSArt",
         companyLink: "https://csart.com.tr/",
-        timeframe: "Jun 2025 - Present",
+        timeframe: "Jun 2025 - Aug 2025",
         role: "Software Engineer Intern",
         achievements: [
+          <>
+            Developed an enterprise-grade AI-powered document processing platform using modular monolith architecture
+          </>,
+          <>
+            Implemented advanced features including <strong>AI document processing</strong>, <strong>multi-language support</strong>, and <strong>role-based access control</strong>
+          </>,
+          <>
+            Integrated advanced AI technologies with semantic search capabilities
+          </>
         ],
+        images: [],
       },
       {
         company: "Akdeniz University",
@@ -120,15 +130,34 @@ const about: About = {
         ],
       },
       {
+        company: "CSArt",
+        timeframe: "Jul 2024 - Aug 2024",
+        companyLink: "https://csart.com.tr/",
+        role: "Software Engineer Intern",
+        achievements: [
+          <>
+            Developed a comprehensive <strong>data analysis system</strong> for academic performance evaluation using <strong>Scopus research database</strong>
+          </>,
+          <>
+            Implemented advanced <strong>SQL queries</strong>, <strong>data visualization</strong>, and <strong>statistical analysis</strong> for research publication metrics
+          </>,
+          <>
+            Created interactive <strong>Python-based</strong> analysis pipeline for academic performance insights
+          </>
+        ],
+        images: [],
+      },
+      {
         company: "Ergineer Software",
         companyLink: "https://ergineer.com/",
-        timeframe: "Jul 2024 - Aug 2024",
+        timeframe: "Jun 2024 - Jul 2024",
         role: "Software Engineering Internship",
         achievements: [
           <>
             Developed mobile applications with <strong>Flutter</strong>, implementing <strong>token-based authentication</strong>, <strong>RESTful API integration</strong>, and <strong>responsive, user-friendly designs</strong>.
           </>,
         ],
+        images: [],
       },
       {
         company: "Sednacloud",
@@ -164,7 +193,7 @@ const about: About = {
           </>,
         ],
         images: [],
-      },
+      }
     ],
   },
   studies: {
@@ -185,43 +214,47 @@ const about: About = {
         title: "Backend Development",
         description: <>Building server-side applications and managing databases.</>,
         tags: [
-          { name: "ASP.NET Core 7.0", icon: "dotnet" },
+          { name: "ASP.NET Core 8.0", icon: "dotnet" },
           { name: "PostgreSQL", icon: "postgresql" },
-          { name: "MySQL", icon: "mysql" },
-          { name: "DBeaver", icon: "dbeaver" },
-          { name: "C#", icon: "csharp" },
+          { name: "FastAPI", icon: "python" },
+          { name: "Entity Framework Core", icon: "dotnet" },
+          { name: "Docker", icon: "docker" },
+          { name: "Elasticsearch", icon: "elasticsearch" },
         ],
-        images: [], // istersen burada backend projelerinin ekran görüntülerini ekleyebilirsin
+        images: [],
       },
       {
         title: "Frontend Development",
         description: <>Creating interactive and responsive user interfaces.</>,
         tags: [
-          { name: "Angular", icon: "angular" },
-          { name: "HTML", icon: "html" },
-          { name: "CSS", icon: "css" },
+          { name: "Next.js 15", icon: "nextjs" },
+          { name: "React 18", icon: "react" },
           { name: "TypeScript", icon: "typescript" },
-          { name: "JavaScript", icon: "javascript" },
+          { name: "Tailwind CSS", icon: "tailwind" },
+          { name: "Azure MSAL", icon: "azure" },
         ],
         images: [],
       },
       {
-        title: "Data & Scripting",
-        description: <>Data manipulation, scripting, and backend APIs.</>,
+        title: "AI & Data Science",
+        description: <>Implementing AI-powered solutions and data analysis.</>,
         tags: [
-          { name: "Python", icon: "python" },
-          { name: "Flask", icon: "flask" },
+          { name: "Google Gemini AI", icon: "ai" },
+          { name: "LangChain", icon: "python" },
+          { name: "Vector Embeddings", icon: "ai" },
+          { name: "Natural Language Processing", icon: "ai" },
         ],
         images: [],
       },
       {
         title: "Tools & Collaboration",
-        description: <>Version control and containerization for smooth collaboration.</>,
+        description: <>Version control, containerization, and DevOps practices.</>,
         tags: [
           { name: "Git", icon: "git" },
           { name: "GitHub", icon: "github" },
           { name: "Docker", icon: "docker" },
-          { name: "Jira", icon: "jira" },
+          { name: "Azure Pipelines", icon: "azure" },
+          { name: "CI/CD", icon: "devops" },
         ],
         images: [],
       },
