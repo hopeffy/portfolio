@@ -16,6 +16,7 @@
 
 @media (max-width: breakpoints.$s) {
     .avatar {
+        position: relative;
         top: auto;
     }
 
