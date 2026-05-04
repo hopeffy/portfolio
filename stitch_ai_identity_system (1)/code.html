@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synthetic Intelligence Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#131319",
+                        "tertiary-fixed": "#ff8eac",
+                        "surface-container": "#19191f",
+                        "on-tertiary-container": "#000000",
+                        "on-secondary-container": "#fff5ff",
+                        "primary-dim": "#00deec",
+                        "on-surface": "#f9f5fd",
+                        "primary-container": "#00eefc",
+                        "error": "#ff716c",
+                        "background": "#0e0e13",
+                        "error-dim": "#d7383b",
+                        "tertiary-container": "#fc0078",
+                        "on-background": "#f9f5fd",
+                        "inverse-primary": "#006a71",
+                        "on-primary-container": "#005359",
+                        "tertiary-dim": "#e4006c",
+                        "on-primary": "#005d63",
+                        "surface": "#0e0e13",
+                        "on-tertiary-fixed-variant": "#760035",
+                        "on-secondary-fixed-variant": "#7900c6",
+                        "tertiary": "#ff6b98",
+                        "primary": "#8ff5ff",
+                        "on-secondary": "#340059",
+                        "surface-container-highest": "#25252d",
+                        "on-error-container": "#ffa8a3",
+                        "secondary-fixed-dim": "#ddb3ff",
+                        "on-tertiary-fixed": "#380015",
+                        "on-secondary-fixed": "#500086",
+                        "outline": "#76747b",
+                        "on-tertiary": "#47001d",
+                        "surface-variant": "#25252d",
+                        "primary-fixed": "#00eefc",
+                        "on-error": "#490006",
+                        "surface-container-lowest": "#000000",
+                        "inverse-on-surface": "#55545b",
+                        "surface-tint": "#8ff5ff",
+                        "secondary-container": "#8c00e5",
+                        "on-surface-variant": "#acaab1",
+                        "tertiary-fixed-dim": "#ff769e",
+                        "surface-container-high": "#1f1f26",
+                        "surface-bright": "#2c2b33",
+                        "surface-dim": "#0e0e13",
+                        "on-primary-fixed": "#003f43",
+                        "secondary-fixed": "#e7c5ff",
+                        "primary-fixed-dim": "#00deec",
+                        "inverse-surface": "#fcf8ff",
+                        "on-primary-fixed-variant": "#005e64",
+                        "secondary-dim": "#a533ff",
+                        "error-container": "#9f0519",
+                        "outline-variant": "#48474d",
+                        "secondary": "#c47fff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'scanlines': 'repeating-linear-gradient(to bottom, transparent, transparent 4px, rgba(0, 238, 252, 0.05) 4px, rgba(0, 238, 252, 0.05) 4.5px)',
+                        'primary-gradient': 'linear-gradient(135deg, #8ff5ff 0%, #00eefc 100%)',
+                        'mixed-gradient': 'linear-gradient(135deg, #8ff5ff 0%, #c47fff 100%)'
+                    },
+                    keyframes: {
+                        glitch: {
+                            '0%, 100%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' }
+                        },
+                        scan: {
+                            '0%': { top: '0%' },
+                            '100%': { top: '100%' }
+                        },
+                        reveal: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)', opacity: '0.1' },
+                            '50%': { transform: 'translateY(-20px)', opacity: '0.4' }
+                        }
+                    },
+                    animation: {
+                        'glitch-hover': 'glitch 0.3s ease-in-out infinite',
+                        'scan-line': 'scan 3s linear infinite',
+                        'reveal-text': 'reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                        'float-particle': 'float 8s ease-in-out infinite'
+                    }
+                }
+            }
+        }</script>
+<style>
+        body {
+            background-color: #0B0B10;
+        }
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col relative overflow-x-hidden antialiased">
+<div class="noise-overlay"></div>
+<div class="fixed inset-0 bg-scanlines pointer-events-none z-[-1]"></div>
+<!-- Floating Particles Background -->
+<div class="fixed inset-0 pointer-events-none z-[-2] overflow-hidden">
+<div class="absolute top-[15%] left-[10%] w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_#8ff5ff] animate-float-particle" style="animation-delay: 0s;"></div>
+<div class="absolute top-[65%] left-[85%] w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_10px_#c47fff] animate-float-particle" style="animation-delay: 2s;"></div>
+<div class="absolute top-[80%] left-[25%] w-2.5 h-2.5 rounded-full bg-tertiary-fixed shadow-[0_0_10px_#ff8eac] animate-float-particle" style="animation-delay: 4s;"></div>
+<div class="absolute top-[35%] left-[75%] w-1 h-1 rounded-full bg-primary-dim shadow-[0_0_8px_#00deec] animate-float-particle" style="animation-delay: 1s;"></div>
+<div class="absolute top-[50%] left-[5%] w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#8ff5ff] animate-float-particle" style="animation-delay: 3.5s;"></div>
+</div>
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-[#0B0B10]/70 backdrop-blur-xl fixed top-0 left-0 w-full z-50 border-b border-cyan-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex items-center justify-between px-10 py-5">
+<div class="text-lg font-black tracking-tighter text-cyan-400 font-headline">SYS_IDENTITY_v2.4</div>
+<div class="hidden md:flex gap-8 font-['Space_Grotesk'] tracking-widest uppercase text-xs">
+<a class="relative text-cyan-400 font-medium pb-1 group" href="#">Identity<span class="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400"></span></a>
+<a class="relative text-slate-500 font-medium hover:text-cyan-200 transition-colors duration-300 pb-1 group" href="#archive">Archive<span class="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span></a>
+<a class="relative text-slate-500 font-medium hover:text-cyan-200 transition-colors duration-300 pb-1 group" href="#terminal">Terminal<span class="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span></a>
+<a class="relative text-slate-500 font-medium hover:text-cyan-200 transition-colors duration-300 pb-1 group" href="#">Nexus<span class="absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span></a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-cyan-400 hover:text-cyan-200 transition-colors">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="text-cyan-400 hover:text-cyan-200 transition-colors">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="hidden md:block bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-cyan-500/20 transition-all">Sync</button>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-12 px-6 md:px-12 lg:px-24">
+<!-- Hero Section -->
+<section class="min-h-[819px] flex flex-col lg:flex-row items-center justify-between gap-12 relative mt-12">
+<!-- Background Glow -->
+<div class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary-dim/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="flex-1 space-y-8 z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[10px] tracking-[0.05em] text-on-surface-variant uppercase">CORE ARCHITECTURE: V2.4 ONLINE</span>
+</div>
+<h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.02em] leading-tight text-on-surface animate-reveal-text opacity-0">
+                    I build digital <br class="hidden md:block"/>
+                    systems that <br class="hidden md:block"/>
+<span class="text-transparent bg-clip-text bg-primary-gradient">feel alive.</span>
+</h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-xl">
+                    Frontend · Backend · AI · Systems Design
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-mixed-gradient text-[#0B0B10] font-headline font-semibold text-sm tracking-wide hover:translate-x-[2px] transition-transform shadow-[0_0_40px_rgba(0,222,236,0.1)]" href="#archive">
+                        View Work
+                    </a>
+<a class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-outline-variant/30 text-on-surface font-headline font-semibold text-sm tracking-wide hover:bg-surface-container-highest transition-colors" href="#">
+                        Download CV
+                    </a>
+</div>
+</div>
+<!-- Stylized AI Portrait container -->
+<div class="flex-1 flex justify-center lg:justify-end z-10 w-full relative">
+<!-- Targeting Box Corners -->
+<div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
+<div class="relative w-full max-w-md aspect-[4/5] rounded bg-surface-container-low overflow-hidden shadow-[inset_0_0_20px_rgba(0,238,252,0.1)] group">
+<img alt="High-tech, futuristic cyberpunk portrait with neon cyan and purple lighting and digital scanning interface" class="w-full h-full object-cover group-hover:animate-glitch-hover" data-alt="Stylized human face with cyberpunk neon cyan and purple rim lighting, digital glitch effects, scan lines, dark cinematic atmosphere" src="https://lh3.googleusercontent.com/aida/ADBb0ug7UPCKcQ5cYbbwy9xgL6YtY6Iq-ZxlWFfFRGeBt1yh4Dtl5TcrrqqBCuXB8NRmYQMqUBWAFnDPhcZaMPRfVmKBvgYapVt39gc7JZbzwMIvRJhT-xDrD4D-wxVA6hYVGg6L32YeUDZaUubOvwtlUYlqIp-vEy2bqOToAqhDr4NdyfnHe7dAscll7sP568eUnzBvaFdPtsk1MXvVWtHgExbUFkcN4QK2zELxP1I15n8mK7VjapSWCYJ-"/>
+<!-- Scanline Overlay over image -->
+<div class="absolute inset-0 bg-scanlines pointer-events-none opacity-50"></div>
+<!-- Moving Scan Line -->
+<div class="absolute left-0 w-full h-[2px] bg-primary/80 shadow-[0_0_15px_#8ff5ff] animate-scan-line pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- System Protocols (What I Do) -->
+<section class="mt-32 relative">
+<div class="mb-12 flex items-center gap-4">
+<div class="w-1 h-8 bg-primary-dim"></div>
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">System Protocols</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Protocol 1 -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT relative group overflow-hidden transition-all duration-300 hover:bg-surface-container hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,238,252,0.15)]">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary" data-icon="memory">memory</span>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 border border-outline-variant/20 shadow-[inset_0_0_10px_rgba(0,238,252,0.05)]">
+<span class="material-symbols-outlined text-primary" data-icon="dns">dns</span>
+</div>
+<h3 class="font-headline text-xl font-semibold mb-3 text-on-surface">Systems Architecture</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Designing scalable, resilient backends with microservices and real-time data pipelines.</p>
+</div>
+<!-- Protocol 2 -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT relative group overflow-hidden transition-all duration-300 hover:bg-surface-container hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(196,127,255,0.15)] translate-y-0 md:translate-y-8">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-secondary" data-icon="devices">devices</span>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 border border-outline-variant/20 shadow-[inset_0_0_10px_rgba(196,127,255,0.05)]">
+<span class="material-symbols-outlined text-secondary" data-icon="web">web</span>
+</div>
+<h3 class="font-headline text-xl font-semibold mb-3 text-on-surface">High-Fidelity Interfaces</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Translating complex data into fluid, performant client-side experiences using modern frameworks.</p>
+</div>
+<!-- Protocol 3 -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT relative group overflow-hidden transition-all duration-300 hover:bg-surface-container hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,142,172,0.15)]">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-tertiary-fixed" data-icon="psychology">psychology</span>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 border border-outline-variant/20 shadow-[inset_0_0_10px_rgba(255,142,172,0.05)]">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="smart_toy">smart_toy</span>
+</div>
+<h3 class="font-headline text-xl font-semibold mb-3 text-on-surface">Applied AI Integration</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Embedding machine learning models directly into product flows for contextual intelligence.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-12 mt-auto bg-gradient-to-t from-[#0B0B10] to-transparent border-t border-white/5 flex flex-col md:flex-row items-center justify-between px-10 cursor-none md:cursor-auto bg-[#0B0B10]">
+<div class="text-sm font-bold text-purple-500 font-headline">SYS_IDENTITY_v2.4</div>
+<div class="font-['Inter'] text-[10px] tracking-[0.2em] uppercase text-slate-500 my-4 md:my-0">
+            © 2024 SYNTHETIC_CORE. ENCRYPTED_CONNECTION_ESTABLISHED.
+        </div>
+<div class="flex gap-6 font-['Inter'] text-[10px] tracking-[0.2em] uppercase">
+<a class="text-slate-600 hover:text-cyan-400 transition-colors" href="#">Signal</a>
+<a class="text-slate-600 hover:text-cyan-400 transition-colors" href="#">GitHub</a>
+<a class="text-slate-600 hover:text-cyan-400 transition-colors" href="#">Layer_0</a>
+</div>
+</footer>
+</body></html>

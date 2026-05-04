@@ -1,52 +1,35 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
-import styles from "./Footer.module.scss";
+import type { Locale } from "@/lib/i18n";
+import { uiCopy } from "@/resources/i18n";
 
-export const Footer = () => {
+export const Footer = ({ locale }: { locale: Locale }) => {
   const currentYear = new Date().getFullYear();
+  const copy = uiCopy[locale];
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
-      <Row
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="between"
-        vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
-          </Text>
-        </Text>
-        <Row gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Row>
-      </Row>
-      <Row height="80" hide s={{ hide: false }} />
-    </Row>
+    <footer className="w-full py-12 mt-auto bg-gradient-to-t from-[#0B0B10] to-transparent border-t border-white/5 flex flex-col md:flex-row items-center justify-between px-10 bg-[#0B0B10]">
+      <a href="/" className="block">
+        <img src="/logo.svg" alt="Logo" className="h-6 w-auto" />
+      </a>
+      <div className="font-body text-[10px] tracking-[0.2em] uppercase text-slate-500 my-4 md:my-0">
+        &copy; {currentYear} {person.name.toUpperCase().replace(/\s+/g, "_")}.
+        {copy.footer.encrypted}
+      </div>
+      <div className="flex gap-6 font-body text-[10px] tracking-[0.2em] uppercase">
+        {social.map((item) =>
+          item.link ? (
+            <a
+              key={item.name}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-cyan-400 transition-colors"
+            >
+              {item.name}
+            </a>
+          ) : null
+        )}
+      </div>
+    </footer>
   );
 };

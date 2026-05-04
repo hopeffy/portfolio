@@ -1,12 +1,11 @@
 import { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types/content.types";
-import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Eftelya",
   lastName: "ÇELİK",
   name: `Eftelya ÇELİK`,
   role: "Computer Engineer",
-  avatar: "/Adsız tasarım (6).png",
+  avatar: "/Gemini_Generated_Image_1ing8e1ing8e1ing.png",
   email: "eftelyacelik@gmail.com",
   location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Türkçe"], // optional: Leave the array empty if you don't want to display languages
@@ -48,26 +47,14 @@ const home: Home = {
   featured: {
     display: true,
     title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Portfolio</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
+      <span className="ml-4 font-semibold">Portfolio — Featured work</span>
     ),
     href: "/work/gunkaf-25-website",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I&apos;m {person.firstName}, a {person.role} passionate about building
+      systems with context and intent.
     </>
   ),
 };
@@ -231,7 +218,6 @@ const about: About = {
           { name: "React 18", icon: "react" },
           { name: "TypeScript", icon: "typescript" },
           { name: "Tailwind CSS", icon: "tailwind" },
-          { name: "Azure MSAL", icon: "azure" },
         ],
         images: [],
       },
@@ -278,13 +264,10 @@ const about: About = {
             </a>
 
             <div style={{ marginTop: 12 }}>
-              <iframe
-                src="https://www.akdenizkariyerzirvesi.com.tr/"
-                height="400"
-                width="100%"
-                frameBorder="0"
-                title="Akdeniz Career Summit Website"
-                style={{ borderRadius: 12, border: '1px solid #e5e7eb' }}
+              <img
+                src="/project-akz/66shots_so.png"
+                alt="Akdeniz Career Summit snapshot"
+                style={{ width: "100%", borderRadius: 12, border: "1px solid #e5e7eb" }}
               />
             </div>
           </>

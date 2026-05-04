@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* ===== TAILWIND V4 THEME OVERRIDES ===== */
+@theme {
+  --color-surface-container-low: #131319;
+  --color-tertiary-fixed: #ff8eac;
+  --color-surface-container: #19191f;
+  --color-on-tertiary-container: #000000;
+  --color-on-secondary-container: #fff5ff;
+  --color-primary-dim: #00deec;
+  --color-on-surface: #f9f5fd;
+  --color-primary-container: #00eefc;
+  --color-error: #ff716c;
+  --color-background: #0e0e13;
+  --color-error-dim: #d7383b;
+  --color-tertiary-container: #fc0078;
+  --color-on-background: #f9f5fd;
+  --color-inverse-primary: #006a71;
+  --color-on-primary-container: #005359;
+  --color-tertiary-dim: #e4006c;
+  --color-on-primary: #005d63;
+  --color-surface: #0e0e13;
+  --color-on-tertiary-fixed-variant: #760035;
+  --color-on-secondary-fixed-variant: #7900c6;
+  --color-tertiary: #ff6b98;
+  --color-primary: #8ff5ff;
+  --color-on-secondary: #340059;
+  --color-surface-container-highest: #25252d;
+  --color-on-error-container: #ffa8a3;
+  --color-secondary-fixed-dim: #ddb3ff;
+  --color-on-tertiary-fixed: #380015;
+  --color-on-secondary-fixed: #500086;
+  --color-outline: #76747b;
+  --color-on-tertiary: #47001d;
+  --color-surface-variant: #25252d;
+  --color-primary-fixed: #00eefc;
+  --color-on-error: #490006;
+  --color-surface-container-lowest: #000000;
+  --color-inverse-on-surface: #55545b;
+  --color-surface-tint: #8ff5ff;
+  --color-secondary-container: #8c00e5;
+  --color-on-surface-variant: #acaab1;
+  --color-tertiary-fixed-dim: #ff769e;
+  --color-surface-container-high: #1f1f26;
+  --color-surface-bright: #2c2b33;
+  --color-surface-dim: #0e0e13;
+  --color-on-primary-fixed: #003f43;
+  --color-secondary-fixed: #e7c5ff;
+  --color-primary-fixed-dim: #00deec;
+  --color-inverse-surface: #fcf8ff;
+  --color-on-primary-fixed-variant: #005e64;
+  --color-secondary-dim: #a533ff;
+  --color-error-container: #9f0519;
+  --color-outline-variant: #48474d;
+  --color-secondary: #c47fff;
+  --color-void: #0B0B10;
+
+  --font-family-headline: "Space Grotesk", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-label: "Inter", sans-serif;
+
+  --animate-glitch-hover: glitch 0.3s ease-in-out infinite;
+  --animate-scan-line: scan 3s linear infinite;
+  --animate-float-particle: float 8s ease-in-out infinite;
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+  @keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); opacity: 0.1; }
+    50% { transform: translateY(-20px); opacity: 0.4; }
+  }
+}
+
+@layer base {
+  body {
+    background-color: #0B0B10;
+    font-family: "Inter", sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(143, 245, 255, 0.3);
+    color: #f9f5fd;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0B0B10;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #48474d;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #76747b;
+  }
+}
+
+@layer components {
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  }
+
+  .ghost-border {
+    border-color: rgba(72, 71, 77, 0.15);
+  }
+
+  .rim-glow {
+    box-shadow: inset 0 0 0 1px rgba(143, 245, 255, 0.3);
+  }
+
+  .accent-bar {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .accent-bar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #00deec;
+  }
+
+  .data-label {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #acaab1;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #8ff5ff 0%, #00eefc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-mixed {
+    background: linear-gradient(135deg, #8ff5ff 0%, #c47fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ===== CUSTOM COMPONENT STYLES (not Tailwind-dependent) ===== */
+
+/* Scanline background overlay on portrait image */
+.bg-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 4px,
+    rgba(0, 238, 252, 0.05) 4px,
+    rgba(0, 238, 252, 0.05) 4.5px
+  );
+}
+
+/* Gradient backgrounds */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, #8ff5ff 0%, #00eefc 100%);
+}
+
+.bg-mixed-gradient {
+  background: linear-gradient(135deg, #8ff5ff 0%, #c47fff 100%);
+}
+
+/* Glitch hover — works with group-hover too */
+@keyframes glitch-keyframes {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+.animate-glitch-hover:hover,
+.group:hover .group-hover\:animate-glitch-hover {
+  animation: glitch-keyframes 0.3s ease-in-out infinite;
+}

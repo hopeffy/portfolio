@@ -1,138 +1,101 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { person } from "@/resources";
+import type { Locale } from "@/lib/i18n";
+import { useMemo } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
-
-import { routes, display, person, about, blog, work } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
-import styles from "./Header.module.scss";
-
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+const localeLabels: Record<Locale, { identity: string; archive: string; terminal: string; sync: string }> = {
+  en: {
+    identity: "Identity",
+    archive: "Archive",
+    terminal: "Terminal",
+    sync: "Sync",
+  },
+  tr: {
+    identity: "Kimlik",
+    archive: "Arsiv",
+    terminal: "Iletisim",
+    sync: "Senkron",
+  },
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
-
-export const Header = () => {
+export const Header = ({ locale }: { locale: Locale }) => {
   const pathname = usePathname();
+  const labels = useMemo(() => localeLabels[locale], [locale]);
+
+  const navItems = [
+    { label: labels.identity, href: "/", active: pathname === "/" },
+    { label: labels.archive, href: "/work", active: pathname.startsWith("/work") },
+    { label: labels.terminal, href: "/contact", active: pathname === "/contact" },
+  ];
+
+  const setLocale = (nextLocale: Locale) => {
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+    window.location.reload();
+  };
 
   return (
-    <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade
-        hide
-        s={{ hide: false }}
-        fillWidth
-        position="fixed"
-        bottom="0"
-        to="top"
-        height="80"
-        zIndex={9}
-      />
-      <Row
-        fitHeight
-        className={styles.position}
-        position="sticky"
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-        data-border="rounded"
-        s={{
-          position: "fixed",
-        }}
-      >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
-        </Row>
-        <Row fillWidth horizontal="center">
-          <Row
-            background="page"
-            border="neutral-alpha-weak"
-            radius="m-4"
-            shadow="l"
-            padding="4"
-            horizontal="center"
-            zIndex={1}
+    <nav className="bg-[#0B0B10]/70 backdrop-blur-xl fixed top-0 left-0 w-full z-50 border-b border-cyan-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex items-center justify-between px-10 py-5">
+      <a href="/" className="block">
+        <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
+      </a>
+      <div className="hidden md:flex gap-8 font-headline tracking-widest uppercase text-xs">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className={`relative font-medium pb-1 group transition-colors duration-300 ${
+              item.active
+                ? "text-cyan-400"
+                : "text-slate-500 hover:text-cyan-200"
+            }`}
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              {routes["/"] && (
-                <>
-                  <Row s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/"
-                      label={about.label}
-                      selected={pathname === "/"}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <Row s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
-            </Row>
-          </Row>
-        </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            textVariant="body-default-s"
-            gap="20"
-          >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
-        </Flex>
-      </Row>
-    </>
+            {item.label}
+            <span
+              className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400 transition-transform duration-300 ease-out ${
+                item.active
+                  ? "scale-x-100"
+                  : "origin-left scale-x-0 group-hover:scale-x-100"
+              }`}
+            />
+          </a>
+        ))}
+      </div>
+      <div className="flex items-center gap-4">
+        <a
+          href={`mailto:${person.email}`}
+          className="text-cyan-400 hover:text-cyan-200 transition-colors"
+        >
+          <span className="material-symbols-outlined">fingerprint</span>
+        </a>
+        <a
+          href="https://github.com/hopeffy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-cyan-400 hover:text-cyan-200 transition-colors"
+        >
+          <span className="material-symbols-outlined">sensors</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/eftelya-celik/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-cyan-400 hover:text-cyan-200 transition-colors"
+        >
+          <span className="material-symbols-outlined">code</span>
+        </a>
+        <button className="hidden md:block bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase font-headline hover:bg-cyan-500/20 transition-all">
+          {labels.sync}
+        </button>
+        <button
+          onClick={() => setLocale(locale === "tr" ? "en" : "tr")}
+          className="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase font-headline hover:bg-cyan-500/20 transition-all"
+          aria-label="Toggle language"
+        >
+          {locale.toUpperCase()}
+        </button>
+      </div>
+    </nav>
   );
 };
