@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { work } from "@/resources";
-import { getPosts } from "@/utils/utils";
-import Link from "next/link";
+import { about, work } from "@/resources";
 import { cookies } from "next/headers";
 import { normalizeLocale } from "@/lib/i18n";
 import { uiCopy } from "@/resources/i18n";
+import { getPosts } from "@/utils/utils";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: work.title,
@@ -19,7 +19,6 @@ export default async function Work() {
 
   return (
     <section className="max-w-6xl mx-auto pt-24 pb-12 px-6 md:px-12 lg:px-24">
-      {/* Header Section */}
       <header className="mb-16 relative">
         <div className="absolute -left-4 top-0 w-1 h-full bg-primary-container shadow-[0_0_15px_rgba(0,240,255,0.5)]" />
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -32,28 +31,23 @@ export default async function Work() {
           <div className="flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/30 pb-2">
             <span className="text-primary">{copy.work.scanning}</span> <span>{copy.work.optimal}</span>
             <span className="mx-2">|</span>
-            <span className="text-primary">{copy.work.index}</span> <span>{String(projects.length).padStart(3, "0")}_ACTIVE_NODES</span>
+            <span className="text-primary">{copy.work.index}</span>{" "}
+            <span>{String(projects.length).padStart(3, "0")}_ACTIVE_NODES</span>
           </div>
         </div>
       </header>
 
-      {/* Project Grid */}
+      {/* Projects (MDX) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => {
-          const tags = [
-            ["PYTORCH", "CUDA", "CPP"],
-            ["RUST", "GRPC", "WASM"],
-            ["REACT", "TS", "TAILWIND"],
-            ["KAFKA", "GOLANG", "DOCKER"],
-          ];
           const icons = ["memory", "database", "terminal", "history"];
-          const labels = ["V4.0_STABLE", "BETA_ACCESS", "LIVE_NODES", "EXPERIMENTAL"];
           const labelColors = [
             "bg-primary/20 border-primary/30 text-primary",
             "bg-secondary/20 border-secondary/30 text-secondary",
             "bg-tertiary/20 border-tertiary/30 text-tertiary",
             "bg-on-surface-variant/20 border-outline-variant/30 text-white",
           ];
+          const tag = project.metadata.tag?.trim();
 
           return (
             <article
@@ -61,7 +55,6 @@ export default async function Work() {
               className="bg-[#0b0b10]/60 backdrop-blur-[20px] border border-[#8ff5ff]/10 group relative overflow-hidden transition-all duration-300 hover:border-[#8ff5ff]/50 hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] flex flex-col"
               style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 90%, 95% 100%, 0% 100%)" }}
             >
-              {/* Image header */}
               <div className="relative h-48 overflow-hidden border-b border-primary/10">
                 {project.metadata.images?.[0] ? (
                   <img
@@ -72,14 +65,15 @@ export default async function Work() {
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] to-transparent opacity-60" />
                 <div className="absolute inset-0 bg-scanlines pointer-events-none opacity-30" />
-                <div className="absolute top-4 left-4">
-                  <span className={`${labelColors[index % labelColors.length]} text-[10px] font-bold px-2 py-1 rounded backdrop-blur-md`}>
-                    {labels[index % labels.length]}
-                  </span>
-                </div>
+                {tag ? (
+                  <div className="absolute top-4 left-4">
+                    <span className={`${labelColors[index % labelColors.length]} text-[10px] font-bold px-2 py-1 rounded backdrop-blur-md`}>
+                      {tag}
+                    </span>
+                  </div>
+                ) : null}
               </div>
 
-              {/* Content */}
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-headline text-xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">
@@ -126,7 +120,6 @@ export default async function Work() {
         })}
       </div>
 
-      {/* Background Glow */}
       <div className="fixed top-[20%] right-[10%] w-64 h-64 bg-primary-container/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="fixed bottom-[10%] left-[15%] w-96 h-96 bg-secondary-container/5 rounded-full blur-[150px] pointer-events-none" />
     </section>

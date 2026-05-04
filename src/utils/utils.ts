@@ -24,7 +24,7 @@ import { notFound } from "next/navigation";
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
-    notFound();
+    return [];
   }
 
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
@@ -44,7 +44,7 @@ function readMDXFile(filePath: string) {
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
-    tag: data.tag || [],
+    tag: typeof data.tag === "string" ? data.tag : "",
     team: data.team || [],
     link: data.link || "",
   };
