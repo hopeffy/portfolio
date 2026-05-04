@@ -1,169 +1,98 @@
-import "@once-ui-system/core/css/styles.css";
-import "@once-ui-system/core/css/tokens.css";
-import "@/resources/custom.css";
+import type { Metadata } from "next";
+import { Space_Grotesk, Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { baseURL, about, person } from "@/resources";
+import { cookies } from "next/headers";
+import { normalizeLocale } from "@/lib/i18n";
 
-import classNames from "classnames";
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-headline",
+  subsets: ["latin"],
+  display: "swap",
+});
 
-import {
-  Background,
-  Column,
-  Flex,
-  Meta,
-  opacity,
-  RevealFx,
-  SpacingToken,
-} from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle } from "@/resources";
+const inter = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: "Hakkımda",
-    description: "Kişisel portfolyo hakkında bilgiler",
-    baseURL: baseURL,
-    path: "/about",
-  });
-}
+export const metadata: Metadata = {
+  title: about.title,
+  description: about.description,
+  openGraph: {
+    title: about.title,
+    description: about.description,
+    url: baseURL,
+  },
+};
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = normalizeLocale(cookieStore.get("NEXT_LOCALE")?.value);
+
   return (
-    <Flex
-      suppressHydrationWarning
-      as="html"
-      lang="en"
-      fillWidth
-      className={classNames(
-        fonts.heading.variable,
-        fonts.body.variable,
-        fonts.label.variable,
-        fonts.code.variable,
-      )}
+    <html
+      lang={locale}
+      className={`${spaceGrotesk.variable} ${inter.variable} dark`}
     >
       <head>
-        <script
-          id="theme-init"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
-                  const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
-                  })};
-                  
-                  // Apply default values
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <Providers>
-        <Column
-          as="body"
-          background="page"
-          fillWidth
-          style={{ minHeight: "100vh" }}
-          margin="0"
-          padding="0"
-          horizontal="center"
-        >
-          <RevealFx fill position="absolute">
-            <Background
-              mask={{
-                x: effects.mask.x,
-                y: effects.mask.y,
-                radius: effects.mask.radius,
-                cursor: effects.mask.cursor,
-              }}
-              gradient={{
-                display: effects.gradient.display,
-                opacity: effects.gradient.opacity as opacity,
-                x: effects.gradient.x,
-                y: effects.gradient.y,
-                width: effects.gradient.width,
-                height: effects.gradient.height,
-                tilt: effects.gradient.tilt,
-                colorStart: effects.gradient.colorStart,
-                colorEnd: effects.gradient.colorEnd,
-              }}
-              dots={{
-                display: effects.dots.display,
-                opacity: effects.dots.opacity as opacity,
-                size: effects.dots.size as SpacingToken,
-                color: effects.dots.color,
-              }}
-              grid={{
-                display: effects.grid.display,
-                opacity: effects.grid.opacity as opacity,
-                color: effects.grid.color,
-                width: effects.grid.width,
-                height: effects.grid.height,
-              }}
-              lines={{
-                display: effects.lines.display,
-                opacity: effects.lines.opacity as opacity,
-                size: effects.lines.size as SpacingToken,
-                thickness: effects.lines.thickness,
-                angle: effects.lines.angle,
-                color: effects.lines.color,
-              }}
-            />
-          </RevealFx>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
-          <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
-            </Flex>
-          </Flex>
-          <Footer />
-        </Column>
-      </Providers>
-    </Flex>
+      <body className="bg-background text-on-surface font-body min-h-screen flex flex-col relative overflow-x-hidden antialiased">
+        <div className="noise-overlay" />
+        <div className="fixed inset-0 bg-scanlines pointer-events-none z-[-1]" />
+
+        {/* Floating Particles Background */}
+        <div className="fixed inset-0 pointer-events-none z-[-2] overflow-hidden">
+          <div
+            className="absolute top-[15%] left-[10%] w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_#8ff5ff] animate-float-particle"
+            style={{ animationDelay: "0s" }}
+          />
+          <div
+            className="absolute top-[65%] left-[85%] w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_10px_#c47fff] animate-float-particle"
+            style={{ animationDelay: "2s" }}
+          />
+          <div
+            className="absolute top-[80%] left-[25%] w-2.5 h-2.5 rounded-full bg-tertiary-fixed shadow-[0_0_10px_#ff8eac] animate-float-particle"
+            style={{ animationDelay: "4s" }}
+          />
+          <div
+            className="absolute top-[35%] left-[75%] w-1 h-1 rounded-full bg-primary-dim shadow-[0_0_8px_#00deec] animate-float-particle"
+            style={{ animationDelay: "1s" }}
+          />
+          <div
+            className="absolute top-[50%] left-[5%] w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#8ff5ff] animate-float-particle"
+            style={{ animationDelay: "3.5s" }}
+          />
+        </div>
+
+        <Header locale={locale} />
+        <main className="flex-grow pt-24 pb-12 px-6 md:px-12 lg:px-24">
+          {children}
+        </main>
+        <Footer locale={locale} />
+      </body>
+    </html>
   );
 }

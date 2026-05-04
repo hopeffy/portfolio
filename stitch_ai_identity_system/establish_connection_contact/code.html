@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Establish Connection | AETHER_OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#25252d",
+                    "on-tertiary-fixed": "#380015",
+                    "secondary-fixed-dim": "#ddb3ff",
+                    "outline": "#76747b",
+                    "on-surface": "#f9f5fd",
+                    "secondary": "#c47fff",
+                    "surface-container-high": "#1f1f26",
+                    "secondary-container": "#8c00e5",
+                    "on-primary-fixed": "#003f43",
+                    "on-error-container": "#ffa8a3",
+                    "outline-variant": "#48474d",
+                    "inverse-surface": "#fcf8ff",
+                    "surface-container": "#19191f",
+                    "inverse-on-surface": "#55545b",
+                    "surface-dim": "#0e0e13",
+                    "secondary-fixed": "#e7c5ff",
+                    "on-primary-container": "#005359",
+                    "error-container": "#9f0519",
+                    "on-secondary-fixed": "#500086",
+                    "on-tertiary": "#47001d",
+                    "on-primary-fixed-variant": "#005e64",
+                    "error-dim": "#d7383b",
+                    "surface-variant": "#25252d",
+                    "on-tertiary-fixed-variant": "#760035",
+                    "primary": "#8ff5ff",
+                    "surface-bright": "#2c2b33",
+                    "error": "#ff716c",
+                    "on-background": "#f9f5fd",
+                    "surface-tint": "#8ff5ff",
+                    "surface-container-lowest": "#000000",
+                    "on-primary": "#005d63",
+                    "on-error": "#490006",
+                    "tertiary-fixed": "#ff8eac",
+                    "surface-container-low": "#131319",
+                    "background": "#0e0e13",
+                    "primary-dim": "#00deec",
+                    "on-secondary-container": "#fff5ff",
+                    "primary-container": "#00eefc",
+                    "secondary-dim": "#a533ff",
+                    "tertiary-fixed-dim": "#ff769e",
+                    "on-tertiary-container": "#000000",
+                    "tertiary": "#ff6b98",
+                    "primary-fixed": "#00eefc",
+                    "on-secondary-fixed-variant": "#7900c6",
+                    "inverse-primary": "#006a71",
+                    "on-surface-variant": "#acaab1",
+                    "primary-fixed-dim": "#00deec",
+                    "on-secondary": "#340059",
+                    "tertiary-dim": "#e4006c",
+                    "surface": "#0e0e13",
+                    "tertiary-container": "#fc0078"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-color: #0B0B10;
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 50%), linear-gradient(rgba(11, 11, 16, 0.97) 0.5px, transparent 0.5px);
+    background-size: 100% 100%, 100% 4px;
+    color: #f9f5fd
+    }
+.glass-panel {
+    background: rgba(44, 43, 51, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(143, 245, 255, 0.05)
+    }
+.scanline-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    z-index: 9999;
+    pointer-events: none;
+    background-size: 100% 3px, 3px 100%
+    }
+.grain-texture {
+    position: fixed;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCZRPNTVvZwkz44cxWAOb9DJiZKCcu-Z190MZCcL26o4mwmxBt203BBlHZNToDfOeHwQChKcW0d5dP-Wj9Ydo3hBo7eFXLXegsfqQN6iH6Ec2wGPPBFcRLTHsUacAbngPTJ7FD9WAKOX9K24RGQnWiPkZ1aooKZ-PZlpnva8r2Wn99b4-0JFt4VpYAPz5Y8Nn_peyZIJJMLt6Rdt8RnjSdTYH_BPkBTHW3dYyGegyZeI3bH4jmkuNi0GVkrU9-eKxRJ_90XRI9w3A)
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }</style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed">
+<div class="grain-texture"></div>
+<div class="scanline-overlay"></div>
+<!-- Navigation Shell -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#0B0B10]/80 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(0,240,255,0.1)]">
+<div class="text-2xl font-black tracking-tighter text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.4)] font-headline">AETHER_OS</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-headline tracking-tighter uppercase text-sm text-slate-500 hover:text-cyan-200 transition-colors duration-300" href="#">IDENTITY</a>
+<a class="font-headline tracking-tighter uppercase text-sm text-slate-500 hover:text-cyan-200 transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="font-headline tracking-tighter uppercase text-sm text-slate-500 hover:text-cyan-200 transition-colors duration-300" href="#">CORE</a>
+<a class="font-headline tracking-tighter uppercase text-sm text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">TERMINAL</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-cyan-400 hover:bg-cyan-500/5 transition-all duration-200 p-2 rounded-lg">fingerprint</button>
+<button class="material-symbols-outlined text-cyan-400 hover:bg-cyan-500/5 transition-all duration-200 p-2 rounded-lg">settings_input_component</button>
+</div>
+<div class="bg-gradient-to-b from-cyan-500/10 to-transparent h-[2px] w-full absolute bottom-0 left-0"></div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16 relative">
+<div class="absolute -left-4 top-0 w-1 h-full bg-primary-dim"></div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface mb-4">
+                Let's Build Something New
+            </h1>
+<p class="font-label text-xs tracking-[0.3em] text-primary uppercase flex items-center gap-3">
+<span class="inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                INITIATING_CONTACT_PROTOCOL... Waiting for user input.
+            </p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Terminal Interface (Form) -->
+<div class="lg:col-span-8">
+<div class="glass-panel p-8 rounded-DEFAULT relative overflow-hidden">
+<!-- Corner Brackets -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/40"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40"></div>
+<form action="#" class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Input Field: Name -->
+<div class="relative group">
+<label class="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Operator Name</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2" placeholder="GHOST_USER_74" type="text"/>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-container transition-all duration-500 group-focus-within:w-full"></div>
+</div>
+<!-- Input Field: Email -->
+<div class="relative group">
+<label class="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Return Signal (Email)</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2" placeholder="ENCRYPTED@SIGNAL.COM" type="email"/>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-container transition-all duration-500 group-focus-within:w-full"></div>
+</div>
+</div>
+<!-- Textarea Field: Mission Brief -->
+<div class="relative group">
+<label class="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Mission Brief (Message)</label>
+<textarea class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 resize-none" placeholder="DESCRIBE_THE_OBJECTIVE..." rows="4"></textarea>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-container transition-all duration-500 group-focus-within:w-full"></div>
+</div>
+<!-- Submit Button -->
+<div class="flex justify-end pt-4">
+<button class="relative group px-12 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-full overflow-hidden shadow-[0_0_20px_rgba(0,238,252,0.3)] hover:shadow-[0_0_40px_rgba(0,238,252,0.5)] transition-all duration-500 active:scale-95" type="submit">
+<span class="relative z-10 font-headline font-black tracking-widest text-on-tertiary-container uppercase">ESTABLISH_LINK</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Sidebar Status Module -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Status Card -->
+<div class="bg-surface-container-high p-6 rounded-DEFAULT border-l-2 border-primary">
+<div class="flex items-center justify-between mb-8">
+<span class="font-label text-[10px] tracking-widest text-slate-500 uppercase">System Status</span>
+<span class="material-symbols-outlined text-primary text-sm">sensors</span>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center group">
+<span class="text-slate-400 text-xs font-label uppercase tracking-wider">ENCRYPTION:</span>
+<span class="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">ACTIVE</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-slate-400 text-xs font-label uppercase tracking-wider">SIGNAL:</span>
+<span class="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">OPTIMAL</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-slate-400 text-xs font-label uppercase tracking-wider">BITRATE:</span>
+<span class="text-secondary text-xs font-bold tracking-widest font-headline">2.4 GB/S</span>
+</div>
+</div>
+<!-- Micro Viz -->
+<div class="mt-8 flex gap-1 h-8 items-end">
+<div class="bg-primary-container w-full h-[60%] opacity-40"></div>
+<div class="bg-primary-container w-full h-[80%] opacity-60"></div>
+<div class="bg-primary-container w-full h-[40%] opacity-30"></div>
+<div class="bg-primary-container w-full h-[95%] opacity-80"></div>
+<div class="bg-primary-container w-full h-[70%] opacity-50"></div>
+<div class="bg-primary-container w-full h-[85%] opacity-70"></div>
+</div>
+</div>
+<!-- Biometric Mockup Card -->
+<div class="bg-surface-container p-6 rounded-DEFAULT border-l-2 border-secondary overflow-hidden relative">
+<div class="absolute top-2 right-2 opacity-20">
+<span class="material-symbols-outlined text-secondary text-4xl">fingerprint</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<!-- Targeting component -->
+<div class="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-primary"></div>
+<div class="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-primary"></div>
+<div class="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-primary"></div>
+<div class="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-primary"></div>
+<img alt="biometric scan preview" class="w-12 h-12 rounded-lg object-cover grayscale contrast-125" data-alt="ultra close-up of computer circuitry and data nodes with blue and violet neon lights and digital artifacts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTHCgwPs41e2c8ob6g2EPLLNiXu8m6IYAtD4bkI0tz781Jar4YA4Kz1MhhJCi2rmMpx5n336vz4jEY9Q4P1BKcKdrKGwpkXRvoKkqSQQUfIMdwCAk544ctt8zelQGzDQb5hVatCq9fpoUwWjCErCUtUZ6ppV2PQU3wVOJ8rs3QLRjx4IylNKMYjcpoRDMdfVmRhqkLRQtNXxm1-YAmDr8ux--ZeA94cA9Yi02me43I94qq6DdK5dpzwdxo1TAAcQkgGoMaEOVNlA"/>
+</div>
+<div>
+<p class="text-[10px] font-label text-slate-500 uppercase tracking-widest">Operator Identity</p>
+<p class="font-headline font-bold text-sm text-on-surface">SYNTH_VER_4.02</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary w-2/3 h-full"></div>
+</div>
+</div>
+<!-- Location Tracking Card -->
+<div class="bg-surface-container-low p-6 rounded-DEFAULT relative overflow-hidden group">
+<img alt="global connection map" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" data-alt="topographical data map of the world glowing with cyan lines on a dark black background representing global networks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNumT8QtXVgDXOOU0Hcu8Fo1fDxPiteE0DrC_lWQ0GdYF-Rdaul3hxlnL8PeKCYtf0ul8P2NEQxZIHhBmSIINt_swiR2dIsbfgta2lOzGAYein5E-F3Iw7bMh6lG7ookOCGInydieu47On3nbUaqV72Cbmp-AqadIEhF7SK7eWohyqfqwUnQ_gZaDh5SHpxeUXYAXEodaQlgK5cINtNC2wYdMCz5pEnqJGtiQW2I8xieyqw4CLC_RLVZ09jiVpbYot4fbJhdSfSg"/>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xs">location_on</span>
+<span class="font-label text-[10px] tracking-widest text-slate-500 uppercase">Node Location</span>
+</div>
+<p class="font-headline text-lg font-medium text-primary">NEO-TOKYO // HUB_01</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 opacity-60 border-t border-cyan-500/5 bg-[#0B0B10]">
+<div class="font-headline font-bold text-xs tracking-widest text-slate-500 uppercase">CORE ARCHITECTURE: V2.4 // STATUS: SECURE_CONNECTION</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.2em] font-bold text-slate-600 hover:text-cyan-400 transition-colors" href="#">ENCRYPTED_COMMS</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.2em] font-bold text-slate-600 hover:text-cyan-400 transition-colors" href="#">NEURAL_NET</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.2em] font-bold text-slate-600 hover:text-cyan-400 transition-colors" href="#">DATA_STREAM</a>
+</div>
+<div class="font-['Inter'] uppercase text-[10px] tracking-[0.2em] font-bold text-slate-600">
+            © 2024 AETHER_INTERFACE
+        </div>
+</footer>
+</body></html>
