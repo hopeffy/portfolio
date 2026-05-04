@@ -41,7 +41,7 @@ export default async function Contact() {
             <form action="#" className="space-y-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative group">
-                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Operator Name</label>
+                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.operatorName}</label>
                   <input
                     className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 outline-none"
                     placeholder="GHOST_USER_74"
@@ -49,7 +49,7 @@ export default async function Contact() {
                   />
                 </div>
                 <div className="relative group">
-                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Return Signal (Email)</label>
+                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.returnSignal}</label>
                   <input
                     className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 outline-none"
                     placeholder="ENCRYPTED@SIGNAL.COM"
@@ -59,7 +59,7 @@ export default async function Contact() {
               </div>
 
               <div className="relative group">
-                <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">Mission Brief (Message)</label>
+                <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.missionBrief}</label>
                 <textarea
                   className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 resize-none outline-none"
                   placeholder="DESCRIBE_THE_OBJECTIVE..."
@@ -73,7 +73,7 @@ export default async function Contact() {
                   className="relative group px-12 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-full overflow-hidden shadow-[0_0_20px_rgba(0,238,252,0.3)] hover:shadow-[0_0_40px_rgba(0,238,252,0.5)] transition-all duration-500 active:scale-95"
                 >
                   <span className="relative z-10 font-headline font-black tracking-widest text-on-primary-container uppercase text-sm">
-                    ESTABLISH_LINK
+                    {copy.contact.establishLink}
                   </span>
                 </button>
               </div>
@@ -86,20 +86,20 @@ export default async function Contact() {
           {/* Status Card */}
           <div className="bg-surface-container-high p-6 rounded border-l-2 border-primary">
             <div className="flex items-center justify-between mb-8">
-              <span className="font-label text-[10px] tracking-widest text-slate-500 uppercase">System Status</span>
+              <span className="font-label text-[10px] tracking-widest text-slate-500 uppercase">{copy.contact.systemStatus}</span>
               <span className="material-symbols-outlined text-primary text-sm">sensors</span>
             </div>
             <div className="space-y-6">
               <div className="flex justify-between items-center">
-                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">ENCRYPTION:</span>
-                <span className="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">ACTIVE</span>
+                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">{copy.contact.encryption}</span>
+                <span className="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">{copy.contact.active}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">SIGNAL:</span>
-                <span className="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">OPTIMAL</span>
+                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">{copy.contact.signal}</span>
+                <span className="text-primary text-xs font-bold tracking-widest font-headline px-2 py-1 bg-primary/10 rounded">{copy.contact.optimal}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">BITRATE:</span>
+                <span className="text-slate-400 text-xs font-label uppercase tracking-wider">{copy.contact.bitrate}</span>
                 <span className="text-secondary text-xs font-bold tracking-widest font-headline">2.4 GB/S</span>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default async function Contact() {
                 </div>
               </div>
               <div>
-                <p className="text-[10px] font-label text-slate-500 uppercase tracking-widest">Operator Identity</p>
+                <p className="text-[10px] font-label text-slate-500 uppercase tracking-widest">{copy.contact.operatorIdentity}</p>
                 <p className="font-headline font-bold text-sm text-on-surface">{person.name.toUpperCase().replace(/\s+/g, "_")}</p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default async function Contact() {
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-2">
                 <span className="material-symbols-outlined text-primary text-xs">location_on</span>
-                <span className="font-label text-[10px] tracking-widest text-slate-500 uppercase">Node Location</span>
+                <span className="font-label text-[10px] tracking-widest text-slate-500 uppercase">{copy.contact.nodeLocation}</span>
               </div>
               <p className="font-headline text-lg font-medium text-primary">
                 {person.location.replace("/", " // ").toUpperCase().replace("_", " ")}

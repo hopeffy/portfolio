@@ -26,10 +26,24 @@ type UiCopy = {
     index: string;
     viewProject: string;
     backProjects: string;
+    classified: string;
+    experienceLog: string;
   };
   contact: {
     title: string;
     protocol: string;
+    operatorName: string;
+    returnSignal: string;
+    missionBrief: string;
+    establishLink: string;
+    systemStatus: string;
+    encryption: string;
+    active: string;
+    signal: string;
+    optimal: string;
+    bitrate: string;
+    operatorIdentity: string;
+    nodeLocation: string;
   };
 };
 
@@ -60,10 +74,24 @@ export const uiCopy: Record<Locale, UiCopy> = {
       index: "INDEX:",
       viewProject: "VIEW PROJECT",
       backProjects: "Projects",
+      classified: "CLASSIFIED",
+      experienceLog: "Experience Log",
     },
     contact: {
       title: "Let's Build Something New",
       protocol: "INITIATING_CONTACT_PROTOCOL... Waiting for user input.",
+      operatorName: "Operator Name",
+      returnSignal: "Return Signal (Email)",
+      missionBrief: "Mission Brief (Message)",
+      establishLink: "ESTABLISH_LINK",
+      systemStatus: "System Status",
+      encryption: "ENCRYPTION:",
+      active: "ACTIVE",
+      signal: "SIGNAL:",
+      optimal: "OPTIMAL",
+      bitrate: "BITRATE:",
+      operatorIdentity: "Operator Identity",
+      nodeLocation: "Node Location",
     },
   },
   tr: {
@@ -90,12 +118,26 @@ export const uiCopy: Record<Locale, UiCopy> = {
       scanning: "TARAMA_DURUMU:",
       optimal: "OPTIMAL",
       index: "INDEKS:",
-      viewProject: "PROJEYI AC",
+      viewProject: "BAGLANTIYI AC",
       backProjects: "Projeler",
+      classified: "KISITLI",
+      experienceLog: "Deneyim Kaydi",
     },
     contact: {
       title: "Yeni Bir Sey Insa Edelim",
       protocol: "ILETISIM_PROTOKOLU_BASLATILIYOR... Kullanici girdisi bekleniyor.",
+      operatorName: "Operator Adi",
+      returnSignal: "Geri Donus Sinyali (E-posta)",
+      missionBrief: "Gorev Ozeti (Mesaj)",
+      establishLink: "BAGLANTI_KUR",
+      systemStatus: "Sistem Durumu",
+      encryption: "SIFRELEME:",
+      active: "AKTIF",
+      signal: "SINYAL:",
+      optimal: "OPTIMAL",
+      bitrate: "BIT_HIZI:",
+      operatorIdentity: "Operator Kimligi",
+      nodeLocation: "Dugum Konumu",
     },
   },
 };
