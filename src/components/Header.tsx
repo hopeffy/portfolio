@@ -5,17 +5,15 @@ import { person } from "@/resources";
 import type { Locale } from "@/lib/i18n";
 import { useMemo } from "react";
 
-const localeLabels: Record<Locale, { identity: string; archive: string; terminal: string; sync: string }> = {
+const localeLabels: Record<Locale, { identity: string; archive: string; sync: string }> = {
   en: {
     identity: "Identity",
     archive: "Projects",
-    terminal: "Contact",
     sync: "Sync",
   },
   tr: {
     identity: "Kimlik",
     archive: "Projeler",
-    terminal: "İletişim",
     sync: "Senkron",
   },
 };
@@ -27,7 +25,6 @@ export const Header = ({ locale }: { locale: Locale }) => {
   const navItems = [
     { label: labels.identity, href: "/", active: pathname === "/" },
     { label: labels.archive, href: "/work", active: pathname.startsWith("/work") },
-    { label: labels.terminal, href: "/contact", active: pathname === "/contact" },
   ];
 
   const setLocale = (nextLocale: Locale) => {

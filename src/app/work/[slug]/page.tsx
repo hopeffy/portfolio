@@ -27,12 +27,14 @@ export async function generateMetadata({
 
   const posts = getPosts(["src", "app", "work", "projects"]);
   const post = posts.find((post) => post.slug === slugPath);
+  const cookieStore = await cookies();
+  const locale = normalizeLocale(cookieStore.get("NEXT_LOCALE")?.value);
 
   if (!post) return {};
 
   return {
-    title: post.metadata.title,
-    description: post.metadata.summary,
+    title: locale === "en" && post.metadata.titleEn ? post.metadata.titleEn : post.metadata.title,
+    description: locale === "en" && post.metadata.summaryEn ? post.metadata.summaryEn : post.metadata.summary,
   };
 }
 
@@ -72,7 +74,7 @@ export default async function Project({
           </span>
         )}
         <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-on-surface text-center">
-          {post.metadata.title}
+          {locale === "en" && post.metadata.titleEn ? post.metadata.titleEn : post.metadata.title}
         </h1>
       </div>
       {post.metadata.images?.length > 0 && (
@@ -88,7 +90,7 @@ export default async function Project({
         </div>
       )}
       <article className="prose prose-invert max-w-none font-body text-on-surface-variant">
-        <p>{post.metadata.summary}</p>
+        <p>{locale === "en" && post.metadata.summaryEn ? post.metadata.summaryEn : post.metadata.summary}</p>
       </article>
     </section>
   );

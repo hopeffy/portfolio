@@ -77,13 +77,13 @@ export default async function Work() {
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-headline text-xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">
-                    {project.metadata.title}
+                    {locale === "en" && project.metadata.titleEn ? project.metadata.titleEn : project.metadata.title}
                   </h2>
                   <span className="material-symbols-outlined text-primary/40 text-sm">{icons[index % icons.length]}</span>
                 </div>
 
                 <p className="text-on-surface-variant text-sm leading-relaxed mb-2 font-body">
-                  {project.metadata.summary}
+                  {locale === "en" && project.metadata.summaryEn ? project.metadata.summaryEn : project.metadata.summary}
                 </p>
 
                 <p className="text-on-surface-variant text-xs leading-relaxed mb-6 font-body opacity-70">
