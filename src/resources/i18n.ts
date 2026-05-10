@@ -100,7 +100,7 @@ export const uiCopy: Record<Locale, UiCopy> = {
       line1: "Fikirleri çalışan sistemlere",
       line2: "dönüştürüyorum.",
       ctaWork: "Projeler",
-      ctaContact: "Iletisim",
+      ctaContact: "İletişim",
       role: "Bilgisayar Muhendisi",
     },
     sections: {

@@ -8,14 +8,14 @@ import { useMemo } from "react";
 const localeLabels: Record<Locale, { identity: string; archive: string; terminal: string; sync: string }> = {
   en: {
     identity: "Identity",
-    archive: "Archive",
-    terminal: "Terminal",
+    archive: "Projects",
+    terminal: "Contact",
     sync: "Sync",
   },
   tr: {
     identity: "Kimlik",
-    archive: "Arsiv",
-    terminal: "Iletisim",
+    archive: "Projeler",
+    terminal: "İletişim",
     sync: "Senkron",
   },
 };
