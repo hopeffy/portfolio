@@ -5,16 +5,20 @@ import { person } from "@/resources";
 import type { Locale } from "@/lib/i18n";
 import { useMemo } from "react";
 
-const localeLabels: Record<Locale, { identity: string; archive: string; sync: string }> = {
+const localeLabels: Record<Locale, { identity: string; archive: string; email: string; github: string; linkedin: string }> = {
   en: {
     identity: "Identity",
     archive: "Projects",
-    sync: "Sync",
+    email: "Email",
+    github: "GitHub",
+    linkedin: "LinkedIn",
   },
   tr: {
     identity: "Kimlik",
     archive: "Projeler",
-    sync: "Senkron",
+    email: "E-posta",
+    github: "GitHub",
+    linkedin: "LinkedIn",
   },
 };
 
@@ -63,6 +67,7 @@ export const Header = ({ locale }: { locale: Locale }) => {
         <a
           href={`mailto:${person.email}`}
           className="text-cyan-400 hover:text-cyan-200 transition-colors"
+          title={labels.email}
         >
           <span className="material-symbols-outlined">fingerprint</span>
         </a>
@@ -71,6 +76,7 @@ export const Header = ({ locale }: { locale: Locale }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-cyan-400 hover:text-cyan-200 transition-colors"
+          title={labels.github}
         >
           <span className="material-symbols-outlined">sensors</span>
         </a>
@@ -79,12 +85,10 @@ export const Header = ({ locale }: { locale: Locale }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-cyan-400 hover:text-cyan-200 transition-colors"
+          title={labels.linkedin}
         >
           <span className="material-symbols-outlined">code</span>
         </a>
-        <button className="hidden md:block bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase font-headline hover:bg-cyan-500/20 transition-all">
-          {labels.sync}
-        </button>
         <button
           onClick={() => setLocale(locale === "tr" ? "en" : "tr")}
           className="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase font-headline hover:bg-cyan-500/20 transition-all"
