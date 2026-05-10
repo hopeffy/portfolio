@@ -5,7 +5,7 @@ const person: Person = {
   lastName: "ÇELİK",
   name: `Eftelya ÇELİK`,
   role: "Computer Engineer",
-  avatar: "/Gemini_Generated_Image_1ing8e1ing8e1ing.png",
+  avatar: "/Gemini_Generated_Image_fs3cbufs3cbufs3c.png",
   email: "eftelyacelik@gmail.com",
   location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Türkçe"], // optional: Leave the array empty if you don't want to display languages
