@@ -13,16 +13,32 @@ const faq: Record<
     subheading: "About Eftelya & her work",
     items: [
       {
-        q: "What does Eftelya Çelik do?",
-        a: "Eftelya Çelik is a Computer Engineer who builds AI systems — chatbots and conversational assistants, LLM-based Retrieval-Augmented Generation (RAG) workflows, and machine learning / data science models — alongside full-stack web development.",
+        q: "Who is Eftelya Çelik?",
+        a: "Eftelya Çelik is a Computer Engineer and Computer Engineering student at Akdeniz University. She builds AI systems — chatbots, LLM-based Retrieval-Augmented Generation (RAG) workflows, and machine learning models — alongside full-stack web applications.",
       },
       {
-        q: "What is her experience with chatbots and AI assistants?",
-        a: "She built an AI-powered smart assistant and chatbot for Akdeniz University that answers questions over institutional documents, and an LLM-based RAG workflow for TÜBİTAK research use cases.",
+        q: "What does Eftelya Çelik do?",
+        a: "She designs and builds AI-powered products: conversational assistants and chatbots, RAG pipelines that answer questions over documents, and data science / machine learning models — backed by full-stack development with .NET, Python (FastAPI) and Next.js.",
+      },
+      {
+        q: "What AI and LLM projects has she built?",
+        a: "She built the Akdeniz Smart Assistant — an AI chatbot that answers questions over institutional documents for Akdeniz University — and an LLM-based RAG workflow for TÜBİTAK research programs that retrieves relevant documents and generates grounded answers.",
+      },
+      {
+        q: "What is her machine learning and data science experience?",
+        a: "She built a retail sales forecasting model on the Rossmann dataset using XGBoost, with feature engineering, hyperparameter tuning and an interactive Streamlit dashboard. She is also President of the Akdeniz University Data Science Club.",
       },
       {
         q: "Which technologies does she work with?",
-        a: "Large language models (LLM), Retrieval-Augmented Generation (RAG), Python, XGBoost and machine learning, data science, plus full-stack and WordPress web development.",
+        a: "Backend: ASP.NET Core, FastAPI (Python), PostgreSQL, Docker, Elasticsearch. Frontend: Next.js, React, TypeScript, Tailwind CSS. AI & data: LLMs, RAG, LangChain, Google Gemini, vector embeddings, XGBoost, Pandas and scikit-learn.",
+      },
+      {
+        q: "What work experience does she have?",
+        a: "She has interned as a Software Engineer at CSArt (building an AI document-processing platform and a Scopus-based academic data-analysis system), at Ergineer (Flutter mobile apps), and at Sednacloud (full-stack ASP.NET and Angular applications).",
+      },
+      {
+        q: "Has she led any teams or communities?",
+        a: "Yes — she is President of the Akdeniz University Data Science Club, and she served on the organizing committee of Akdeniz Career Summit 2025, where she also built the official website (nearly 500 registrations).",
       },
       {
         q: "How can I get in touch with Eftelya?",
@@ -35,16 +51,32 @@ const faq: Record<
     subheading: "Eftelya ve çalışmaları hakkında",
     items: [
       {
-        q: "Eftelya Çelik ne yapar?",
-        a: "Eftelya Çelik, yapay zeka sistemleri geliştiren bir Bilgisayar Mühendisi — chatbot ve konuşma asistanları, LLM tabanlı Retrieval-Augmented Generation (RAG) iş akışları, makine öğrenimi / veri bilimi modelleri ve full-stack web geliştirme.",
+        q: "Eftelya Çelik kimdir?",
+        a: "Eftelya Çelik, Akdeniz Üniversitesi'nde okuyan bir Bilgisayar Mühendisi ve Bilgisayar Mühendisliği öğrencisidir. Yapay zeka sistemleri — chatbotlar, LLM tabanlı Retrieval-Augmented Generation (RAG) iş akışları ve makine öğrenimi modelleri — ile birlikte full-stack web uygulamaları geliştirir.",
       },
       {
-        q: "Chatbot ve yapay zeka asistanı deneyimi nedir?",
-        a: "Akdeniz Üniversitesi için kurumsal belgeler üzerinden soruları yanıtlayan yapay zeka destekli bir akıllı asistan/chatbot ve TÜBİTAK araştırma senaryoları için LLM tabanlı bir RAG iş akışı geliştirdi.",
+        q: "Eftelya Çelik ne yapar?",
+        a: "Yapay zeka destekli ürünler tasarlar ve geliştirir: konuşma asistanları ve chatbotlar, belgeler üzerinden soruları yanıtlayan RAG hatları ve veri bilimi / makine öğrenimi modelleri — .NET, Python (FastAPI) ve Next.js ile full-stack geliştirme temelinde.",
+      },
+      {
+        q: "Hangi yapay zeka ve LLM projelerini geliştirdi?",
+        a: "Akdeniz Üniversitesi için kurumsal belgeler üzerinden soruları yanıtlayan Akdeniz Akıllı Asistan chatbotunu ve TÜBİTAK araştırma programları için ilgili belgeleri getirip dayanaklı yanıtlar üreten LLM tabanlı bir RAG iş akışını geliştirdi.",
+      },
+      {
+        q: "Makine öğrenimi ve veri bilimi deneyimi nedir?",
+        a: "Rossmann veri seti üzerinde XGBoost kullanarak, özellik mühendisliği, hiperparametre ayarlama ve interaktif bir Streamlit panosu ile perakende satış tahmin modeli geliştirdi. Ayrıca Akdeniz Üniversitesi Veri Bilimi Kulübü Başkanıdır.",
       },
       {
         q: "Hangi teknolojilerle çalışır?",
-        a: "Büyük dil modelleri (LLM), Retrieval-Augmented Generation (RAG), Python, XGBoost ve makine öğrenimi, veri bilimi, ayrıca full-stack ve WordPress web geliştirme.",
+        a: "Backend: ASP.NET Core, FastAPI (Python), PostgreSQL, Docker, Elasticsearch. Frontend: Next.js, React, TypeScript, Tailwind CSS. Yapay zeka ve veri: LLM, RAG, LangChain, Google Gemini, vektör embedding, XGBoost, Pandas ve scikit-learn.",
+      },
+      {
+        q: "Ne tür iş deneyimi var?",
+        a: "CSArt'ta (yapay zeka destekli belge işleme platformu ve Scopus tabanlı akademik veri analiz sistemi), Ergineer'de (Flutter mobil uygulamalar) ve Sednacloud'da (full-stack ASP.NET ve Angular uygulamaları) Yazılım Mühendisi stajyeri olarak çalıştı.",
+      },
+      {
+        q: "Ekip veya topluluk liderliği yaptı mı?",
+        a: "Evet — Akdeniz Üniversitesi Veri Bilimi Kulübü Başkanıdır ve resmi web sitesini de geliştirdiği Akdeniz Kariyer Zirvesi 2025'in organizasyon komitesinde yer aldı (yaklaşık 500 kayıt).",
       },
       {
         q: "Eftelya ile nasıl iletişime geçebilirim?",

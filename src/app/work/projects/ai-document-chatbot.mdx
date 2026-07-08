@@ -25,114 +25,62 @@ team:
 
 ## Project Overview
 
-This project is a cutting-edge AI-powered document processing platform designed to revolutionize document interaction for organizations. The solution showcases advanced modular monolith architecture, AI integration, and enterprise-grade security features.
+The Akdeniz Smart Assistant is an AI-powered platform that lets users chat with an organization's documents in natural language. Instead of searching through files manually, a user asks a question and gets an answer grounded in the institution's own documents. It was built by a team of three developers using a modular monolith architecture.
 
-## Proje Genel Bakış
+## What the Platform Does
 
-Bu proje, kurumların belge etkileşimini devrimsel bir şekilde değiştirmek için tasarlanmış son derece gelişmiş bir yapay zeka destekli belge işleme platformudur. Çözüm, gelişmiş modüler monolit mimari, yapay zeka entegrasyonu ve kurumsal düzeyde güvenlik özellikleri sergilemektedir.
+### 🤖 Document understanding & semantic search
+- Processes uploaded documents, splits them into segments and turns them into vector embeddings
+- Uses semantic (meaning-based) search to find the passages most relevant to a question
+- Generates natural-language answers grounded in those passages
 
-## Key Technical Achievements
+### 🔐 Security & access control
+- Multi-provider authentication
+- Role-based access control (RBAC) so users only see what they are allowed to
+- Secured API layer
 
-### 🤖 AI-Powered Document Processing
-- Implemented intelligent document processing using advanced AI techniques
-- Developed advanced text segmentation and vector embedding strategies
-- Integrated state-of-the-art AI for semantic document understanding
+### 🌐 Multi-language & administration
+- Multi-language support
+- Admin panel for managing users and content
 
-### 🔐 Enterprise Security
-- Implemented multi-provider authentication
-- Developed comprehensive role-based access control system
-- Ensured robust API security with advanced protection mechanisms
+## Architecture
 
-### 📊 Advanced Analytics
-- Integrated centralized logging solutions
-- Created real-time monitoring dashboards
-- Implemented comprehensive activity tracking and audit logging
-
-## Technical Architecture
-
-### Backend
-- **Core Framework**: Enterprise-grade Web API with Modular Monolith Architecture
-- **Database**: Advanced database with vector search capabilities
-- **AI Service**: AI integration service with machine learning capabilities
-
-### Frontend
-- **Framework**: Modern web framework with TypeScript
-- **Styling**: Responsive and adaptive UI design
-- **Authentication**: Secure authentication system
-
-## Technologies Utilized
-
-- **Backend**: Enterprise web technologies
-- **Frontend**: Modern web frameworks
-- **AI/ML**: Advanced AI and machine learning technologies
-- **Infrastructure**: Containerization and cloud technologies
-- **Authentication**: Secure authentication protocols
-
-## Project Impact
-
-The platform demonstrates advanced capabilities in:
-- Full-stack microservices development
-- AI and machine learning integration
-- Enterprise-grade security implementation
-- Scalable and performant system design
+- **Backend**: Web API built with a modular monolith architecture
+- **Search**: Vector-based semantic search over document embeddings
+- **Frontend**: TypeScript-based web interface
 
 ## Challenges Overcome
 
-- Implementing advanced semantic document search
-- Developing a real-time, context-aware interface
-- Ensuring high performance with complex AI processing
-- Managing secure, role-based access to sensitive information
+- Making semantic document search return relevant, context-aware results
+- Designing a real-time chat interface over the retrieval pipeline
+- Managing secure, role-based access to sensitive institutional documents
 
 ---
 
 ## 🇹🇷 Proje Detayları
 
-### 🤖 Yapay Zeka Destekli Belge İşleme
-- İleri AI teknikleri kullanarak akıllı belge işleme uygulandı
-- Gelişmiş metin segmentasyonu ve vektör gömme stratejileri geliştirildi
-- Semantik belge anlama için son teknoloji yapay zeka entegrasyonu sağlandı
+Akdeniz Akıllı Asistan, kullanıcıların bir kurumun belgeleriyle doğal dilde sohbet etmesini sağlayan yapay zeka destekli bir platformdur. Kullanıcı, dosyaları tek tek aramak yerine bir soru sorar ve kurumun kendi belgelerine dayanan bir yanıt alır. Üç kişilik bir geliştirici ekibi tarafından modüler monolit mimariyle geliştirildi.
 
-### 🔐 Kurumsal Güvenlik
-- Çoklu sağlayıcı kimlik doğrulama sistemi uygulandı
-- Kapsamlı rol tabanlı erişim kontrol sistemi geliştirildi
-- Gelişmiş koruma mekanizmaları ile sağlam API güvenliği sağlandı
+### 🤖 Belge Anlama ve Semantik Arama
+- Yüklenen belgeleri işleyip parçalara böldüm ve vektör embedding'lerine dönüştürdüm
+- Bir soruyla en alakalı bölümleri bulmak için semantik (anlam temelli) arama kullandım
+- Yanıtları bu bölümlere dayandırarak doğal dilde ürettim
 
-### 📊 Gelişmiş Analitik
-- Merkezi günlük çözümleri entegre edildi
-- Gerçek zamanlı izleme panoları oluşturuldu
-- Kapsamlı aktivite takibi ve denetim günlüğü uygulandı
+### 🔐 Güvenlik ve Erişim Kontrolü
+- Çoklu sağlayıcı kimlik doğrulama
+- Kullanıcıların yalnızca yetkili oldukları içeriği görmesi için rol tabanlı erişim kontrolü (RBAC)
+- Güvenli API katmanı
+
+### 🌐 Çoklu Dil ve Yönetim
+- Çoklu dil desteği
+- Kullanıcı ve içerik yönetimi için yönetim paneli
 
 ### Teknik Mimari
+- **Backend**: Modüler monolit mimariyle geliştirilen Web API
+- **Arama**: Belge embedding'leri üzerinde vektör tabanlı semantik arama
+- **Frontend**: TypeScript tabanlı web arayüzü
 
-**Backend:**
-- Modüler Monolit Mimarili Kurumsal Düzey Web API
-- Vektör arama yetenekli gelişmiş veritabanı
-- Makine öğrenimi yetenekli yapay zeka servisi
-
-**Frontend:**
-- TypeScript ile modern web framework
-- Responsive ve uyarlanabilir UI tasarımı
-- Güvenli kimlik doğrulama sistemi
-
-### Kullanılan Teknolojiler
-
-- Backend: Kurumsal web teknolojileri
-- Frontend: Modern web frameworkleri
-- AI/ML: İleri yapay zeka ve makine öğrenimi teknolojileri
-- Altyapı: Konteynerizasyon ve bulut teknolojileri
-- Kimlik Doğrulama: Güvenli kimlik doğrulama protokolleri
-
-### Proje Etkisi
-
-Platform şu alanlarda gelişmiş yetenekler sergilemektedir:
-- Full-stack mikroservis geliştirme
-- Yapay zeka ve makine öğrenimi entegrasyonu
-- Kurumsal düzeyde güvenlik uygulaması
-- Ölçeklenebilir ve performanslı sistem tasarımı
-
-### Üstesinden Gelen Zorluklar
-
-- Gelişmiş semantik belge arama uygulaması
-- Gerçek zamanlı, bağlam duyarlı arayüz geliştirme
-- Karmaşık yapay zeka işleme ile yüksek performans sağlama
-- Hassas bilgilere güvenli, rol tabanlı erişim yönetimi
+### Üstesinden Gelinen Zorluklar
+- Semantik belge aramasının alakalı ve bağlam duyarlı sonuçlar döndürmesini sağlamak
+- Getirme (retrieval) hattı üzerinde gerçek zamanlı bir sohbet arayüzü tasarlamak
+- Hassas kurumsal belgelere güvenli, rol tabanlı erişimi yönetmek

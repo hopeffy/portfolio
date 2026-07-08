@@ -17,37 +17,32 @@ team:
 
 ## Project Overview
 
-This project focuses on developing a machine learning model to predict retail sales using XGBoost algorithm. The goal is to help retail businesses optimize inventory management and make data-driven decisions based on accurate sales forecasts.
+A machine learning project that forecasts daily sales for Rossmann drugstore branches. Using historical sales data, the model predicts future demand to support inventory planning and data-driven decisions. It was built end to end — from raw data to an interactive dashboard.
 
-## Key Technical Achievements
+## What I Built
 
-### 📊 Data Processing
-- Performed extensive data preprocessing and feature engineering
-- Handled missing values and outliers using advanced techniques
-- Created time-series features for temporal pattern recognition
+### Data preparation & feature engineering
+- Cleaned the Rossmann dataset and handled missing values and outliers
+- Engineered time-based features (day, month, promotions, holidays, competition distance) to capture seasonal and promotional patterns
 
-### 🤖 Machine Learning
-- Implemented XGBoost regression model with hyperparameter tuning
-- Applied cross-validation for robust model evaluation
-- Achieved high accuracy in sales prediction
+### Modeling
+- Trained an XGBoost regression model to predict store-level daily sales
+- Tuned hyperparameters with grid search and validated with cross-validation
+- Ran feature-importance analysis to understand the main sales drivers
 
-### 📈 Model Optimization
-- Conducted feature importance analysis
-- Optimized model performance through grid search
-- Validated model using multiple metrics (RMSE, MAE, R²)
+### Evaluation
+- Evaluated the model with regression metrics suited to forecasting: RMSE, MAE and R²
+
+### Interactive dashboard
+- Deployed a Streamlit app so anyone can explore the predictions interactively
 
 ## Technical Stack
 
 - **Language**: Python
-- **Libraries**: XGBoost, Pandas, NumPy, Scikit-learn
+- **ML & data**: XGBoost, Pandas, NumPy, Scikit-learn
 - **Visualization**: Matplotlib, Seaborn
+- **App**: Streamlit
 - **Environment**: Jupyter Notebook
-
-## Results
-
-- Achieved 92% prediction accuracy
-- Reduced inventory waste by 15%
-- Improved demand forecasting efficiency
 
 ## Live Demo
 
@@ -61,35 +56,29 @@ View the project on GitHub: [rossman-sales-prediction](https://github.com/hopeff
 
 ## 🇹🇷 Proje Detayları
 
-Bu proje, perakende satışlarını tahmin etmek için XGBoost makine öğrenimi algoritması kullanarak geliştirilen bir modeli hedeflemektedir. Amaç, perakende işletmelerinin envanter yönetimini optimize etmelerine ve doğru satış tahminlerine dayalı veri odaklı kararlar almalarına yardımcı olmaktır.
+Rossmann ilaç mağazası şubelerinin günlük satışlarını tahmin eden bir makine öğrenimi projesi. Model, geçmiş satış verilerini kullanarak gelecekteki talebi tahmin eder ve envanter planlaması ile veri odaklı kararları destekler. Ham veriden interaktif panoya kadar uçtan uca geliştirildi.
 
-### 📊 Veri İşleme
-- Kapsamlı veri ön işleme ve özellik mühendisliği gerçekleştirdim
-- İleri teknikler kullanarak eksik değerleri ve aykırı değerleri işledim
-- Zamansal pattern tanıma için zaman serisi özellikleri oluşturdum
+### 📊 Veri Hazırlığı ve Özellik Mühendisliği
+- Rossmann veri setini temizledim; eksik değerleri ve aykırı değerleri işledim
+- Mevsimsel ve promosyon etkilerini yakalamak için zaman temelli özellikler (gün, ay, promosyonlar, tatiller, rakip mesafesi) oluşturdum
 
-### 🤖 Makine Öğrenimi
-- Hiperparametre ayarlama ile XGBoost regresyon modeli uyguladım
-- Sağlam model değerlendirmesi için çapraz doğrulama kullandım
-- Satış tahmininde yüksek doğruluk elde ettim
+### 🤖 Modelleme
+- Mağaza bazında günlük satışı tahmin etmek için XGBoost regresyon modeli eğittim
+- Grid search ile hiperparametreleri ayarladım, çapraz doğrulama ile değerlendirdim
+- Satışı etkileyen ana faktörleri anlamak için özellik önem analizi yaptım
 
-### 📈 Model Optimizasyonu
-- Özellik önem analizi yürüttüm
-- Grid search ile model performansını optimize ettim
-- Çoklu metrikler kullanarak modeli doğruladım (RMSE, MAE, R²)
+### 📈 Değerlendirme
+- Modeli, tahmin problemlerine uygun regresyon metrikleriyle değerlendirdim: RMSE, MAE ve R²
+
+### İnteraktif Pano
+- Herkesin tahminleri interaktif olarak inceleyebilmesi için bir Streamlit uygulaması yayına aldım
 
 ### Teknik Araçlar
-
 - **Dil**: Python
-- **Kütüphaneler**: XGBoost, Pandas, NumPy, Scikit-learn
+- **ML ve veri**: XGBoost, Pandas, NumPy, Scikit-learn
 - **Görselleştirme**: Matplotlib, Seaborn
+- **Uygulama**: Streamlit
 - **Ortam**: Jupyter Notebook
-
-### Sonuçlar
-
-- %92 tahmin doğruluğu elde ettim
-- Envanter israfını %15 azalttım
-- Talep tahmini verimliliğini artırdım
 
 ## Canlı Demo
 
