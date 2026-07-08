@@ -65,6 +65,15 @@ export default async function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} dark`}
     >
       <head>
+        {/* WebMCP origin-trial token — activates the declarative form tools for AI agents
+            and Lighthouse's agentic-browsing audits. Get a token for eftelyacelik.com at
+            https://developer.chrome.com/origintrials and set NEXT_PUBLIC_WEBMCP_ORIGIN_TRIAL. */}
+        {process.env.NEXT_PUBLIC_WEBMCP_ORIGIN_TRIAL ? (
+          <meta
+            httpEquiv="origin-trial"
+            content={process.env.NEXT_PUBLIC_WEBMCP_ORIGIN_TRIAL}
+          />
+        ) : null}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

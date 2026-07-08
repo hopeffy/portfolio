@@ -38,19 +38,35 @@ export default async function Contact() {
             <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40" />
 
-            <form action="#" className="space-y-10">
+            {/* WebMCP declarative tool: the toolname/tooldescription/toolparamdescription
+                attributes let AI agents (and Lighthouse's agentic-browsing audits) understand
+                and fill this form. Requires a WebMCP origin-trial token on the page to activate. */}
+            <form
+              action="#"
+              className="space-y-10"
+              toolname="send_contact_message"
+              tooldescription="Send a message to Eftelya Çelik through the contact form. Use when a visitor wants to get in touch, collaborate, hire, or ask a question."
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative group">
-                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.operatorName}</label>
+                  <label htmlFor="contact-name" className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.operatorName}</label>
                   <input
+                    id="contact-name"
+                    name="name"
+                    required
+                    toolparamdescription="The sender's full name."
                     className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 outline-none"
                     placeholder="GHOST_USER_74"
                     type="text"
                   />
                 </div>
                 <div className="relative group">
-                  <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.returnSignal}</label>
+                  <label htmlFor="contact-email" className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.returnSignal}</label>
                   <input
+                    id="contact-email"
+                    name="email"
+                    required
+                    toolparamdescription="A valid email address to reply to."
                     className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 outline-none"
                     placeholder="ENCRYPTED@SIGNAL.COM"
                     type="email"
@@ -59,8 +75,12 @@ export default async function Contact() {
               </div>
 
               <div className="relative group">
-                <label className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.missionBrief}</label>
+                <label htmlFor="contact-message" className="block font-label text-[10px] tracking-[0.2em] text-slate-500 uppercase mb-2">{copy.contact.missionBrief}</label>
                 <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  toolparamdescription="The message body describing what the visitor wants."
                   className="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-all duration-500 font-headline text-lg text-primary placeholder:text-slate-700 pb-2 resize-none outline-none"
                   placeholder="DESCRIBE_THE_OBJECTIVE..."
                   rows={4}
