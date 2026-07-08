@@ -9,7 +9,7 @@ export const Footer = ({ locale }: { locale: Locale }) => {
   return (
     <footer className="w-full py-12 mt-auto bg-gradient-to-t from-[#0B0B10] to-transparent border-t border-white/5 flex flex-col md:flex-row items-center justify-between px-10 bg-[#0B0B10]">
       <a href="/" className="block">
-        <img src="/logo.svg" alt="Logo" className="h-6 w-auto" />
+        <img src="/logo.webp" alt="Logo" width={128} height={128} className="h-6 w-auto" />
       </a>
       <div className="font-body text-[10px] tracking-[0.2em] uppercase text-slate-500 my-4 md:my-0">
         &copy; {currentYear} {person.name.toUpperCase().replace(/\s+/g, "_")}.

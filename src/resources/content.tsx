@@ -317,6 +317,7 @@ const about: About = {
                 width="100%"
                 frameBorder="0"
                 allowFullScreen
+                loading="lazy"
                 title="LinkedIn Case Study Post"
                 referrerPolicy="no-referrer-when-downgrade"
                 style={{ borderRadius: 12 }}

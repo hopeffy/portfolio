@@ -39,7 +39,7 @@ export const Header = ({ locale }: { locale: Locale }) => {
   return (
     <nav className="bg-[#0B0B10]/70 backdrop-blur-xl fixed top-0 left-0 w-full z-50 border-b border-cyan-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex items-center justify-between px-10 py-5">
       <a href="/" className="block">
-        <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
+        <img src="/logo.webp" alt="Logo" width={128} height={128} className="h-8 w-auto" />
       </a>
       <div className="hidden md:flex gap-8 font-headline tracking-widest uppercase text-xs">
         {navItems.map((item) => (
