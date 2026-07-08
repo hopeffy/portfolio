@@ -80,9 +80,11 @@ export default async function RootLayout({
           crossOrigin=""
         />
         {/* Inter & Space Grotesk are loaded (self-hosted) via next/font above.
-            Only Material Symbols needs a Google Fonts stylesheet. */}
+            Only Material Symbols needs a Google Fonts stylesheet, subsetted via
+            icon_names to just the glyphs actually used (~a few KB instead of 320KB).
+            When adding a new material-symbols icon, add its name to icon_names below. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=code,fingerprint,location_on,memory,open_in_new,sensors&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
