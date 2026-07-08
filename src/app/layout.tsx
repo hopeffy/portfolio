@@ -73,19 +73,15 @@ export default async function RootLayout({
             content={process.env.NEXT_PUBLIC_WEBMCP_ORIGIN_TRIAL}
           />
         ) : null}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* All fonts are self-hosted (Inter/Space Grotesk via next/font, Material
+            Symbols subset in globals.css), so there are no runtime Google Fonts
+            requests and no preconnects are needed. Preload the tiny icon font. */}
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        {/* Inter & Space Grotesk are loaded (self-hosted) via next/font above.
-            Only Material Symbols needs a Google Fonts stylesheet, subsetted via
-            icon_names to just the glyphs actually used (~a few KB instead of 320KB).
-            When adding a new material-symbols icon, add its name to icon_names below. */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=code,fingerprint,location_on,memory,open_in_new,sensors&display=swap"
-          rel="stylesheet"
+          rel="preload"
+          href="/material-symbols-subset.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
