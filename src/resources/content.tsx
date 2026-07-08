@@ -5,7 +5,7 @@ const person: Person = {
   lastName: "ÇELİK",
   name: `Eftelya ÇELİK`,
   role: "Computer Engineer",
-  avatar: "/Gemini_Generated_Image_fs3cbufs3cbufs3c.png",
+  avatar: "/Gemini_Generated_Image_fs3cbufs3cbufs3c.webp",
   email: "eftelyacelik@gmail.com",
   location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Türkçe"], // optional: Leave the array empty if you don't want to display languages
@@ -265,8 +265,10 @@ const about: About = {
 
             <div style={{ marginTop: 12 }}>
               <img
-                src="/project-akz/66shots_so.png"
+                src="/project-akz/66shots_so.webp"
                 alt="Akdeniz Career Summit snapshot"
+                loading="lazy"
+                decoding="async"
                 style={{ width: "100%", borderRadius: 12, border: "1px solid #e5e7eb" }}
               />
             </div>

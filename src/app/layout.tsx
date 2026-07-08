@@ -51,12 +51,10 @@ export default async function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
+        {/* Inter & Space Grotesk are loaded (self-hosted) via next/font above.
+            Only Material Symbols needs a Google Fonts stylesheet. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />

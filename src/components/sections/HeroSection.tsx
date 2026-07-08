@@ -75,6 +75,10 @@ export const HeroSection = ({ locale }: { locale: Locale }) => {
               alt={`${person.name} portrait`}
               className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
               src={person.avatar}
+              width={640}
+              height={800}
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-scanlines pointer-events-none opacity-50" />
             <div className="absolute left-0 w-full h-[2px] bg-primary/80 shadow-[0_0_15px_#8ff5ff] animate-scan-line pointer-events-none" />

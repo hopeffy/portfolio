@@ -85,6 +85,8 @@ export default async function Project({
               src={image}
               alt={`${post.metadata.title} visual ${index + 1}`}
               className="w-full h-auto rounded-lg border border-outline-variant/30"
+              loading="lazy"
+              decoding="async"
             />
           ))}
         </div>

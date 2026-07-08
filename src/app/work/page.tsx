@@ -61,6 +61,8 @@ export default async function Work() {
                     src={project.metadata.images[0]}
                     alt={project.metadata.title}
                     className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] to-transparent opacity-60" />

@@ -131,6 +131,8 @@ export default async function Contact() {
                     alt={`${person.name} portrait`}
                     className="w-full h-full object-cover grayscale contrast-125"
                     src={person.avatar}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
