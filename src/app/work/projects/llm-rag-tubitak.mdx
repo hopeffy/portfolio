@@ -2,9 +2,9 @@
 title: "LLM Tabanlı RAG İş Akışı — TÜBİTAK"
 titleEn: "LLM-Based RAG Workflow — TÜBİTAK Use Case"
 publishedAt: "2025-05"
-summary: "TÜBİTAK araştırma projeleri için büyük dil modelleri ve Retrieval-Augmented Generation sistemi geliştirme"
-summaryEn: "An LLM-based Retrieval-Augmented Generation (RAG) workflow for TÜBİTAK research use cases, combining large language models with document retrieval to generate accurate, grounded answers."
-tag: "AI / LLM"
+summary: "TÜBİTAK destek programı belgeleri üzerinde n8n ile kurulan, RAG'i uçtan uca öğrenmek için geliştirilen bir LLM + Retrieval-Augmented Generation iş akışı"
+summaryEn: "An LLM-based Retrieval-Augmented Generation (RAG) workflow built with n8n over TÜBİTAK support-program documents — a hands-on project to learn how RAG works end to end."
+tag: "AI / RAG"
 images: []
 team:
   - name: "Eftelya Çelik"
@@ -15,20 +15,22 @@ team:
 
 ## Project Overview
 
-An LLM-based Retrieval-Augmented Generation (RAG) chatbot that answers questions about TÜBİTAK support programs. Instead of reading through long program guidelines, users ask a question in natural language and get an answer grounded in the source documents.
+An early, hands-on experiment to learn how Retrieval-Augmented Generation (RAG) works, built with **n8n** — a visual workflow-automation tool — soon after it added RAG capabilities. Using TÜBİTAK support-program documents as the knowledge base, the workflow answers questions in natural language by retrieving relevant passages and letting a language model generate grounded answers.
 
 ## How It Works
 
+Built entirely as an n8n workflow (no custom backend code):
+
 ### 🔍 Document retrieval
-- Splits program documents into chunks and converts them into vector embeddings
-- Uses semantic (meaning-based) search to retrieve the passages most relevant to a user's question
+- Ingests TÜBİTAK support-program documents and stores them as vector embeddings
+- Retrieves the passages most relevant to a user's question via semantic search
 
 ### 🤖 Answer generation
-- Passes the retrieved passages to a large language model as context
-- Generates answers grounded in the source documents, which keeps responses accurate and reduces hallucination
+- Feeds the retrieved passages to a language model as context
+- Generates answers grounded in the source documents
 
-### 🧱 Backend
-- Built as a REST API with FastAPI
+### 🧪 Why I built it
+- A practical way to understand the full RAG pipeline — chunking, embeddings, retrieval and grounded generation — using a low-code tool, before building RAG systems in production code
 
 ## Repository
 
@@ -38,18 +40,22 @@ View the project on GitHub: [TÜBİTAK Destek Programları RAG Chatbot](https://
 
 ## 🇹🇷 Proje Detayları
 
-TÜBİTAK destek programları hakkındaki soruları yanıtlayan, LLM tabanlı bir Retrieval-Augmented Generation (RAG) chatbotu. Kullanıcılar uzun program kılavuzlarını okumak yerine doğal dilde soru sorar ve kaynak belgelere dayanan bir yanıt alır.
+RAG'in (Retrieval-Augmented Generation) nasıl çalıştığını öğrenmek için, **n8n** — görsel bir iş akışı otomasyon aracı — henüz RAG özelliklerini eklediği dönemde yapılmış erken bir deneme projesi. TÜBİTAK destek programı belgelerini bilgi tabanı olarak kullanan iş akışı; ilgili bölümleri getirip bir dil modeline dayanaklı yanıt ürettirerek soruları doğal dilde yanıtlar.
+
+### Nasıl Çalışır
+
+Tamamen n8n iş akışı olarak kuruldu (özel backend kodu yok):
 
 ### 🔍 Belge Getirme
-- Program belgelerini parçalara (chunk) bölüp vektör embedding'lerine dönüştürdüm
-- Kullanıcının sorusuyla en alakalı bölümleri bulmak için semantik (anlam temelli) arama kullandım
+- TÜBİTAK destek programı belgelerini alıp vektör embedding'leri olarak sakladım
+- Kullanıcının sorusuyla en alakalı bölümleri semantik arama ile getirdim
 
 ### 🤖 Yanıt Üretimi
-- Getirilen bölümleri bağlam olarak büyük dil modeline verdim
-- Yanıtları kaynak belgelere dayandırarak doğruluğu artırdım ve halüsinasyonu azalttım
+- Getirilen bölümleri bağlam olarak dil modeline verdim
+- Yanıtları kaynak belgelere dayandırdım
 
-### 🧱 Backend
-- FastAPI ile REST API olarak geliştirdim
+### 🧪 Neden Yaptım
+- Üretim koduyla RAG sistemleri geliştirmeden önce; parçalama (chunking), embedding, getirme ve dayanaklı üretim adımlarının tamamını düşük kodlu bir araçla uçtan uca anlamak için pratik bir yol
 
 ## Repozitory
 

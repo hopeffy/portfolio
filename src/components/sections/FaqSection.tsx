@@ -22,7 +22,7 @@ const faq: Record<
       },
       {
         q: "What AI and LLM projects has she built?",
-        a: "She built the Akdeniz Smart Assistant — an AI chatbot that answers questions over institutional documents for Akdeniz University — and an LLM-based RAG workflow for TÜBİTAK research programs that retrieves relevant documents and generates grounded answers.",
+        a: "She built the Akdeniz Smart Assistant — an AI chatbot that answers questions over institutional documents for Akdeniz University — and an n8n-based RAG workflow over TÜBİTAK support-program documents, built to explore retrieval-augmented generation end to end.",
       },
       {
         q: "What is her machine learning and data science experience?",
@@ -60,7 +60,7 @@ const faq: Record<
       },
       {
         q: "Hangi yapay zeka ve LLM projelerini geliştirdi?",
-        a: "Akdeniz Üniversitesi için kurumsal belgeler üzerinden soruları yanıtlayan Akdeniz Akıllı Asistan chatbotunu ve TÜBİTAK araştırma programları için ilgili belgeleri getirip dayanaklı yanıtlar üreten LLM tabanlı bir RAG iş akışını geliştirdi.",
+        a: "Akdeniz Üniversitesi için kurumsal belgeler üzerinden soruları yanıtlayan Akdeniz Akıllı Asistan chatbotunu geliştirdi; ayrıca RAG'i uçtan uca öğrenmek için TÜBİTAK destek programı belgeleri üzerinde n8n ile bir RAG iş akışı kurdu.",
       },
       {
         q: "Makine öğrenimi ve veri bilimi deneyimi nedir?",

@@ -6,7 +6,7 @@ Eftelya Çelik is a Computer Engineer based in Istanbul, Turkey, working across 
 
 ## Projects
 - [Akdeniz Smart Assistant](/work/ai-document-chatbot): AI-powered document chat platform for Akdeniz University — a .NET (ASP.NET Core) orchestration service plus a FastAPI AI microservice, RAG over document embeddings with pgvector then Qdrant, and a self-hosted Qwen LLM.
-- [LLM-Based RAG Workflow — TÜBİTAK](/work/llm-rag-tubitak): Large language model and Retrieval-Augmented Generation system for TÜBİTAK research use cases.
+- [LLM-Based RAG Workflow — TÜBİTAK](/work/llm-rag-tubitak): An n8n-built RAG workflow answering questions over TÜBİTAK support-program documents — a hands-on project to learn retrieval-augmented generation.
 - [Retail Sales Prediction](/work/retail-sales-prediction): Retail sales forecasting model built with the XGBoost machine learning algorithm.
 - [Akdeniz Career Summit 2025](/work/akdeniz-career-summit-2025): Organized a large-scale career summit with 500+ registrations and shipped the official website.
 - [Günkaf 25 Website](/work/gunkaf-25-website): WordPress website development and maintenance for the Günkaf 25 organization at Akdeniz University.
