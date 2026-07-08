@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { StructuredData } from "@/components/StructuredData";
 import { baseURL, about, person } from "@/resources";
 import { cookies } from "next/headers";
 import { normalizeLocale } from "@/lib/i18n";
@@ -22,12 +23,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseURL),
   title: about.title,
   description: about.description,
+  keywords: [
+    person.name,
+    "Agentic AI",
+    "AI Agents",
+    "Chatbot Developer",
+    "Conversational AI",
+    "RAG",
+    "Retrieval-Augmented Generation",
+    "LLM",
+    "Machine Learning",
+    "Data Science",
+    "Computer Engineer",
+    "Portfolio",
+  ],
+  authors: [{ name: person.name, url: baseURL }],
+  creator: person.name,
   openGraph: {
     title: about.title,
     description: about.description,
     url: baseURL,
+    siteName: `${person.name} — Portfolio`,
+    type: "website",
   },
 };
 
@@ -92,6 +112,7 @@ export default async function RootLayout({
           {children}
         </main>
         <Footer locale={locale} />
+        <StructuredData />
         <SpeedInsights />
         <Analytics />
       </body>

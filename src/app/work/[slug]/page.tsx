@@ -59,8 +59,34 @@ export default async function Project({
     notFound();
   }
 
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name:
+      locale === "en" && post.metadata.titleEn
+        ? post.metadata.titleEn
+        : post.metadata.title,
+    description:
+      locale === "en" && post.metadata.summaryEn
+        ? post.metadata.summaryEn
+        : post.metadata.summary,
+    url: `${baseURL}/work/${post.slug}`,
+    author: { "@type": "Person", name: person.name, url: baseURL },
+    datePublished: post.metadata.publishedAt,
+    keywords: post.metadata.tag,
+    ...(post.metadata.images?.[0]
+      ? { image: `${baseURL}${post.metadata.images[0]}` }
+      : {}),
+  };
+
   return (
     <section className="max-w-3xl mx-auto pt-24 pb-12 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(projectLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <div className="flex flex-col items-center gap-4 mb-12">
         <Link
           href="/work"
