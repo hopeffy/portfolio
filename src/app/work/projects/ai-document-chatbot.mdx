@@ -25,7 +25,7 @@ team:
 
 ## Project Overview
 
-The Akdeniz Smart Assistant is an AI-powered platform that lets users chat with an organization's documents in natural language. Instead of searching through files manually, a user asks a question and gets an answer grounded in the institution's own documents. It was built by a team of three developers using a modular monolith architecture.
+The Akdeniz Smart Assistant is an AI-powered platform that lets users chat with an organization's documents in natural language. Instead of searching through files manually, a user asks a question and gets an answer grounded in the institution's own documents. It was built by a team of three developers.
 
 ## What the Platform Does
 
@@ -45,8 +45,12 @@ The Akdeniz Smart Assistant is an AI-powered platform that lets users chat with 
 
 ## Architecture
 
-- **Backend**: Web API built with a modular monolith architecture
-- **Search**: Vector-based semantic search over document embeddings
+The platform runs as two backend services:
+
+- **Orchestration service**: a .NET (ASP.NET Core) service, built as a modular monolith, that handles the main application flow, authentication and role-based access control
+- **AI service**: a separate FastAPI (Python) microservice that handles document processing, embeddings and LLM inference
+- **Vector search**: started on PostgreSQL + pgvector, then migrated to Qdrant for vector similarity search
+- **Language model**: a self-hosted, locally-run Qwen mixture-of-experts (MoE) model — chosen after evaluating open models (Gemma, Qwen, gpt-oss) and Google Gemini
 - **Frontend**: TypeScript-based web interface
 
 ## Challenges Overcome
@@ -59,7 +63,7 @@ The Akdeniz Smart Assistant is an AI-powered platform that lets users chat with 
 
 ## 🇹🇷 Proje Detayları
 
-Akdeniz Akıllı Asistan, kullanıcıların bir kurumun belgeleriyle doğal dilde sohbet etmesini sağlayan yapay zeka destekli bir platformdur. Kullanıcı, dosyaları tek tek aramak yerine bir soru sorar ve kurumun kendi belgelerine dayanan bir yanıt alır. Üç kişilik bir geliştirici ekibi tarafından modüler monolit mimariyle geliştirildi.
+Akdeniz Akıllı Asistan, kullanıcıların bir kurumun belgeleriyle doğal dilde sohbet etmesini sağlayan yapay zeka destekli bir platformdur. Kullanıcı, dosyaları tek tek aramak yerine bir soru sorar ve kurumun kendi belgelerine dayanan bir yanıt alır. Üç kişilik bir geliştirici ekibi tarafından geliştirildi.
 
 ### 🤖 Belge Anlama ve Semantik Arama
 - Yüklenen belgeleri işleyip parçalara böldüm ve vektör embedding'lerine dönüştürdüm
@@ -76,8 +80,13 @@ Akdeniz Akıllı Asistan, kullanıcıların bir kurumun belgeleriyle doğal dild
 - Kullanıcı ve içerik yönetimi için yönetim paneli
 
 ### Teknik Mimari
-- **Backend**: Modüler monolit mimariyle geliştirilen Web API
-- **Arama**: Belge embedding'leri üzerinde vektör tabanlı semantik arama
+
+Platform iki backend servisi olarak çalışır:
+
+- **Orkestrasyon servisi**: Ana uygulama akışını, kimlik doğrulamayı ve rol tabanlı erişim kontrolünü yöneten, modüler monolit olarak kurulmuş bir .NET (ASP.NET Core) servisi
+- **AI servisi**: Belge işleme, embedding ve LLM çıkarımını yürüten ayrı bir FastAPI (Python) mikroservisi
+- **Vektör arama**: Önce PostgreSQL + pgvector ile başladık, sonra vektör benzerlik araması için Qdrant'e geçtik
+- **Dil modeli**: Kendi sunucumuzda çalışan (self-hosted) bir Qwen mixture-of-experts (MoE) modeli — açık modeller (Gemma, Qwen, gpt-oss) ve Google Gemini denendikten sonra seçildi
 - **Frontend**: TypeScript tabanlı web arayüzü
 
 ### Üstesinden Gelinen Zorluklar

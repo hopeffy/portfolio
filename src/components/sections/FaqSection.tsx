@@ -30,7 +30,7 @@ const faq: Record<
       },
       {
         q: "Which technologies does she work with?",
-        a: "Backend: ASP.NET Core, FastAPI (Python), PostgreSQL, Docker, Elasticsearch. Frontend: Next.js, React, TypeScript, Tailwind CSS. AI & data: LLMs, RAG, LangChain, Google Gemini, vector embeddings, XGBoost, Pandas and scikit-learn.",
+        a: "Backend: ASP.NET Core (.NET), FastAPI (Python), PostgreSQL, Docker. Frontend: Next.js, React, TypeScript, Tailwind CSS. AI & data: LLMs and RAG, self-hosted open models (Qwen), Google Gemini, LangChain, vector search with pgvector and Qdrant, XGBoost, Pandas and scikit-learn.",
       },
       {
         q: "What work experience does she have?",
@@ -68,7 +68,7 @@ const faq: Record<
       },
       {
         q: "Hangi teknolojilerle çalışır?",
-        a: "Backend: ASP.NET Core, FastAPI (Python), PostgreSQL, Docker, Elasticsearch. Frontend: Next.js, React, TypeScript, Tailwind CSS. Yapay zeka ve veri: LLM, RAG, LangChain, Google Gemini, vektör embedding, XGBoost, Pandas ve scikit-learn.",
+        a: "Backend: ASP.NET Core (.NET), FastAPI (Python), PostgreSQL, Docker. Frontend: Next.js, React, TypeScript, Tailwind CSS. Yapay zeka ve veri: LLM ve RAG, self-hosted açık modeller (Qwen), Google Gemini, LangChain, pgvector ve Qdrant ile vektör arama, XGBoost, Pandas ve scikit-learn.",
       },
       {
         q: "Ne tür iş deneyimi var?",
