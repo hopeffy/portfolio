@@ -1,0 +1,22 @@
+# Eftelya Çelik
+
+> Computer Engineer building bridges between design and code — a portfolio of full-stack web, AI/LLM, and data science projects.
+
+Eftelya Çelik is a Computer Engineer based in Istanbul, Turkey, working across full-stack web development, AI/LLM systems (Retrieval-Augmented Generation), and machine learning / data science. This site showcases her project portfolio and contact details. Languages: English, Türkçe.
+
+## Projects
+- [Akdeniz Smart Assistant](/work/ai-document-chatbot): AI-powered document processing and chat platform built for Akdeniz University.
+- [LLM-Based RAG Workflow — TÜBİTAK](/work/llm-rag-tubitak): Large language model and Retrieval-Augmented Generation system for TÜBİTAK research use cases.
+- [Retail Sales Prediction](/work/retail-sales-prediction): Retail sales forecasting model built with the XGBoost machine learning algorithm.
+- [Akdeniz Career Summit 2025](/work/akdeniz-career-summit-2025): Organized a large-scale career summit with 500+ registrations and shipped the official website.
+- [Günkaf 25 Website](/work/gunkaf-25-website): WordPress website development and maintenance for the Günkaf 25 organization at Akdeniz University.
+
+## Pages
+- [Home](/): Overview and featured work.
+- [Work](/work): Full list of projects.
+- [Contact](/contact): Ways to get in touch.
+
+## Links
+- [GitHub](https://github.com/hopeffy)
+- [LinkedIn](https://www.linkedin.com/in/eftelya-celik/)
+- Email: eftelyacelik@gmail.com
